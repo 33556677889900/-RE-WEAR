@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RE-WEAR — Streetwear</title>
+<style>
+:root{--bg:#08070b;--card:#121018;--text:#f8f5fb;--muted:#aaa4b4;--a:#9b5cff;--a2:#6d28d9;--border:#282130;--danger:#d94b5b}
+body.light{--bg:#f1e7d5;--card:#fff8ec;--text:#34251b;--muted:#796657;--a:#8a5a3b;--a2:#67422d;--border:#d8c5ad}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text);transition:.2s}button,input,select{font:inherit}a{text-decoration:none;color:inherit}
+nav{height:70px;position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:var(--bg);border-bottom:1px solid var(--border)}.logo{font-size:23px;font-weight:900;letter-spacing:4px}.links{display:flex;gap:25px;font-size:13px}.actions{display:flex;gap:8px;align-items:center}
+.switch{width:50px;height:28px;border-radius:20px;border:1px solid var(--border);background:var(--card);padding:3px;cursor:pointer}.knob{width:20px;height:20px;border-radius:50%;background:var(--a);display:flex;align-items:center;justify-content:center;transition:.2s;font-size:11px}.light .knob{transform:translateX(21px)}
+.iconbtn{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 11px;border-radius:8px;cursor:pointer}.cartbtn{position:relative}.count{position:absolute;top:-7px;left:-7px;background:var(--a);color:white;font-size:11px;min-width:19px;height:19px;border-radius:50%;display:none;align-items:center;justify-content:center}
+.hero{min-height:78vh;display:flex;align-items:center;padding:8% 7%;background:radial-gradient(circle at 20% 40%,color-mix(in srgb,var(--a) 30%,transparent),transparent 36%)}.eyebrow{color:var(--a);font-weight:800;letter-spacing:3px}.hero h1{font-size:clamp(58px,11vw,130px);line-height:.84;margin:18px 0;letter-spacing:-5px}.hero p{max-width:560px;color:var(--muted);line-height:1.7}.btn{border:0;background:var(--a);color:#fff;padding:12px 19px;border-radius:8px;font-weight:800;cursor:pointer}.btn:hover{background:var(--a2)}.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
+section{padding:65px 7%}.title{font-size:34px;margin:0 0 25px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.chip{border:1px solid var(--border);background:var(--card);color:var(--text);padding:9px 13px;border-radius:20px;cursor:pointer}.chip.active{background:var(--a);color:white}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;position:relative}.photo,.placeholder{width:100%;height:300px;object-fit:cover;display:block}.placeholder{display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:900;background:linear-gradient(135deg,var(--a2),var(--card));color:#fff}.badge{position:absolute;top:12px;right:12px;background:var(--a);color:#fff;padding:6px 9px;border-radius:6px;font-size:11px;font-weight:800}.info{padding:19px}.info h3{margin:0 0 7px}.muted{color:var(--muted)}.price{font-weight:900;margin:10px 0}.old{text-decoration:line-through;color:var(--muted);font-size:13px;margin-left:7px}.actionsrow{display:flex;gap:8px;margin-top:13px}.actionsrow button{flex:1}
+.about{background:var(--card)}.about p{max-width:800px;color:var(--muted);line-height:1.9}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:60;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.box{width:min(700px,100%);max-height:92vh;overflow:auto;background:var(--card);border:1px solid var(--border);border-radius:15px;padding:24px}.close{float:left}.form{display:grid;gap:11px}.form input,.form select,.form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text)}.row{display:grid;grid-template-columns:1fr 1fr;gap:11px}.notice{padding:12px;border:1px solid var(--border);border-radius:8px;margin-bottom:14px;color:var(--muted)}.detailimg{width:100%;max-height:400px;object-fit:cover;border-radius:10px}.swatches{display:flex;gap:8px;flex-wrap:wrap}.swatch{border:1px solid var(--border);padding:8px 12px;border-radius:7px;background:var(--bg);color:var(--text);cursor:pointer}.swatch.selected{border-color:var(--a);outline:2px solid color-mix(in srgb,var(--a) 35%,transparent)}
+.cartline{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}.cartline img{width:70px;height:70px;object-fit:cover;border-radius:7px}.total{font-size:20px;font-weight:900;margin:18px 0}
+.admin{display:none}.admin.show{display:block}.dash{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}.stat{padding:17px;border:1px solid var(--border);border-radius:10px;background:var(--bg)}.stat b{display:block;font-size:24px;margin-top:6px}.admin-list{display:grid;gap:9px}.admin-item{padding:13px;border:1px solid var(--border);border-radius:9px}.admin-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.thumb{width:65px;height:65px;object-fit:cover;border-radius:7px}.admin-actions{display:flex;gap:6px}.danger{background:var(--danger)!important}.file{padding:10px;border:1px dashed var(--border);border-radius:8px}.preview{width:100%;height:170px;object-fit:cover;border-radius:8px;display:none}
+footer{padding:30px 7%;border-top:1px solid var(--border);color:var(--muted);display:flex;justify-content:space-between}
+@media(max-width:760px){.links{display:none}.grid{grid-template-columns:1fr 1fr}.row,.dash{grid-template-columns:1fr}.hero h1{letter-spacing:-3px}.photo,.placeholder{height:230px}.actions .iconbtn{padding:7px}.cartline{grid-template-columns:55px 1fr}.cartline img{width:55px;height:55px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.photo,.placeholder{height:280px}footer{display:block}}
+</style>
+</head>
+<body>
+<nav><div class="logo">RE-WEAR</div><div class="links"><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></div><div class="actions"><button class="switch" id="theme"><span class="knob" id="knob">☾</span></button><button class="iconbtn cartbtn" onclick="openCart()">🛒<span class="count" id="cartCount">0</span></button><button class="iconbtn" onclick="openAdmin()">ADMIN</button></div></nav>
+
+<header class="hero"><div><div class="eyebrow">STREETWEAR / ALGERIA</div><h1>WEAR<br>YOUR<br>ERA.</h1><p>ملابس عصرية للشباب. ستايل نظيف، قطع مريحة، وقطع تخليك تلبس بطريقتك.</p><a class="btn" href="#shop">SHOP THE DROP ↓</a></div></header>
+
+<section id="shop"><h2 class="title">LATEST DROP</h2><div class="filters" id="filters"></div><div class="grid" id="products"></div></section>
+<section class="about" id="about"><h2 class="title">RE-WEAR</h2><p>Not made to fit in. — ستريت وير للشباب، مبني على البساطة والستايل الشخصي.</p></section>
+<section id="contact"><h2 class="title">جاهز للطلب؟</h2><p class="muted">للاستفسار أو الطلب: <b>0781804711</b></p><button class="btn" onclick="openCart()">شوف السلة</button></section>
+<footer><span>© 2026 RE-WEAR</span><span>0781804711</span></footer>
+
+<div class="modal" id="productModal"><div class="box"><button class="iconbtn close" onclick="closeModal('productModal')">✕</button><div id="productDetail"></div></div></div>
+<div class="modal" id="cartModal"><div class="box"><button class="iconbtn close" onclick="closeModal('cartModal')">✕</button><h2>السلة 🛒</h2><div id="cartItems"></div><div class="total" id="cartTotal"></div><button class="btn" onclick="checkout()">إتمام الطلب</button></div></div>
+<div class="modal" id="orderModal"><div class="box"><button class="iconbtn close" onclick="closeModal('orderModal')">✕</button><h2>تأكيد الطلب</h2><div class="notice">رقم الطلب يتولد تلقائيًا. أدخل معلومات التوصيل ثم أرسل الطلب.</div><form class="form" id="orderForm"><div class="row"><div><label>الاسم</label><input id="customer" required></div><div><label>رقم الهاتف</label><input id="phone" type="tel" placeholder="05xxxxxxxx" required></div></div><div class="row"><div><label>الولاية</label><input id="wilaya" required></div><div><label>البلدية</label><input id="commune" required></div></div><label>ملاحظة</label><textarea id="note" rows="3"></textarea><button class="btn">إرسال الطلب عبر WhatsApp</button></form></div></div>
+
+<div class="modal" id="adminModal"><div class="box"><button class="iconbtn close" onclick="closeModal('adminModal')">✕</button><h2>RE-WEAR ADMIN</h2><div id="login"><form class="form" id="loginForm"><input id="adminEmail" type="email" placeholder="البريد الإلكتروني" autocomplete="username" required><input id="adminPass" type="password" placeholder="كلمة السر" autocomplete="current-password" required><button class="btn" id="loginBtn">دخول</button><div id="loginMsg" class="notice" style="display:none"></div></form></div>
+<div class="admin" id="adminPanel"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px"><b>ADMIN SESSION</b><button type="button" class="iconbtn" onclick="adminLogout()">تسجيل الخروج</button></div><div class="dash"><div class="stat">المنتجات<b id="statProducts">0</b></div><div class="stat">في السلة<b id="statCart">0</b></div><div class="stat">قيمة السلة<b id="statSales">0 DA</b></div></div>
+<h3 id="formTitle">إضافة منتج</h3><form class="form" id="productForm"><input id="pname" placeholder="اسم المنتج" required><div class="row"><input id="pprice" type="number" min="0" placeholder="السعر" required><input id="pold" type="number" min="0" placeholder="السعر القديم (اختياري)"></div><input id="pdesc" placeholder="الوصف"><input id="pcat" placeholder="التصنيف: Hoodies / T-Shirts / Pants"><input id="psizes" placeholder="المقاسات: S,M,L,XL,XXL"><input id="pcolors" placeholder="الألوان: Black,White"><label>الشارة</label><select id="pbadge"><option value="">بدون</option><option>NEW</option><option>SALE</option><option>BEST SELLER</option></select><label>صورة المنتج</label><input class="file" id="pimage" type="file" accept="image/*"><img id="preview" class="preview"><input id="editId" type="hidden"><div style="display:flex;gap:8px"><button class="btn" id="saveProduct">حفظ المنتج</button><button type="button" class="iconbtn" id="cancelEdit" style="display:none">إلغاء</button></div></form>
+<h3>المنتجات</h3><div class="admin-list" id="adminList"></div></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="https://hcfpholwikdvztgbwdij.supabase.co";
+const SUPABASE_KEY="sb_publishable_kRbCpxpyD4nsMEMSjhl4uw_w5CrIkJz";
+const PRODUCT_BUCKET="product-images";
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+const KEY="rw_v5_products",CARTKEY="rw_v5_cart",THEME="rw_v5_theme";
+const DEFAULT=[
+{id:1,name:"Oversized Tee",price:2500,old:0,desc:"Heavy cotton / relaxed fit",cat:"T-Shirts",sizes:["S","M","L","XL"],colors:["Black","White"],badge:"NEW",image:""},
+{id:2,name:"Street Hoodie",price:4500,old:5200,desc:"Oversized / everyday essential",cat:"Hoodies",sizes:["M","L","XL","XXL"],colors:["Black","Purple"],badge:"SALE",image:""},
+{id:3,name:"Utility Pants",price:3900,old:0,desc:"Relaxed fit / street cut",cat:"Pants",sizes:["S","M","L","XL"],colors:["Black","Beige"],badge:"BEST SELLER",image:""}];
+let products=[],cart=load(CARTKEY,[]),editing=null,imageData="",imageFile=null,activeCat="ALL";
+function load(k,f){try{const x=localStorage.getItem(k);return x?JSON.parse(x):f}catch(e){return f}}
+function persistCart(){
+  try{
+    localStorage.setItem(CARTKEY,JSON.stringify(cart));
+    return true;
+  }catch(e){
+    alert("تعذر حفظ السلة محليًا.");
+    return false;
+  }
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function imgTag(p,cls="photo"){return p.image_url?`<img class="${cls}" src="${esc(p.image_url)}" alt="${esc(p.name)}">`:`<div class="placeholder">RW</div>`}
+function renderFilters(){let cats=["ALL",...new Set(products.map(p=>p.category).filter(Boolean))];filters.innerHTML=cats.map(c=>`<button class="chip ${activeCat===c?"active":""}" onclick="setCat('${esc(c)}')">${c==="ALL"?"ALL":esc(c)}</button>`).join("")}
+function render(){
+renderFilters();let list=activeCat==="ALL"?products:products.filter(p=>p.category===activeCat);
+productsEl.innerHTML=list.map(p=>`<article class="card">${p.badge?`<span class="badge">${esc(p.badge)}</span>`:""}${imgTag(p)}<div class="info"><h3>${esc(p.name)}</h3><div class="muted">${esc(p.description)}</div><div class="price">${p.old_price?`<span class="old">${Number(p.old_price).toLocaleString()} DA</span>`:""}${Number(p.price).toLocaleString()} DA</div><div class="actionsrow"><button class="btn secondary" onclick="viewProduct(${p.id})">التفاصيل</button><button class="btn" onclick="addToCart(${p.id})">أضف للسلة</button></div></div></article>`).join("");
+updateCart();renderAdmin();statProducts.textContent=products.length;statCart.textContent=cart.reduce((a,x)=>a+x.qty,0);statSales.textContent=cart.reduce((a,x)=>a+x.qty*x.price,0).toLocaleString()+" DA"}
+function setCat(c){activeCat=c;render()}
+function viewProduct(id){let p=products.find(x=>x.id===id);productModal.classList.add("show");productDetail.innerHTML=`${imgTag(p,"detailimg")}<h2>${esc(p.name)}</h2><p class="muted">${esc(p.description)}</p><div class="price">${p.old_price?`<span class="old">${Number(p.old_price).toLocaleString()} DA</span>`:""}${Number(p.price).toLocaleString()} DA</div><h4>المقاس</h4><div class="swatches" id="sizes">${(p.sizes||[]).map((s,i)=>`<button class="swatch ${i===0?"selected":""}" onclick="selectSwatch(this)">${esc(s)}</button>`).join("")}</div><h4>اللون</h4><div class="swatches" id="colors">${(p.colors||[]).map((c,i)=>`<button class="swatch ${i===0?"selected":""}" onclick="selectSwatch(this)">${esc(c)}</button>`).join("")}</div><br><button class="btn" onclick="addToCart(${p.id});closeModal('productModal')">أضف للسلة</button>`}
+function selectSwatch(b){[...b.parentElement.children].forEach(x=>x.classList.remove("selected"));b.classList.add("selected")}
+function addToCart(id){let p=products.find(x=>x.id===id);let item=cart.find(x=>x.id===id);if(item)item.qty++;else cart.push({id:p.id,name:p.name,price:p.price,image_url:p.image_url,qty:1});persistCart();render();alert("تمت إضافة المنتج للسلة")}
+function updateCart(){cartCount.textContent=cart.reduce((a,x)=>a+x.qty,0);cartCount.style.display=cart.length?"flex":"none"}
+function openCart(){cartModal.classList.add("show");let total=cart.reduce((a,x)=>a+x.qty*x.price,0);cartItems.innerHTML=cart.length?cart.map(x=>`<div class="cartline">${(x.image_url||x.image)?`<img src="${esc(x.image_url||x.image)}">`:`<div class="thumb placeholder">RW</div>`}<div><b>${esc(x.name)}</b><div class="muted">${x.qty} × ${Number(x.price).toLocaleString()} DA</div></div><button class="iconbtn danger" onclick="removeCart(${x.id})">حذف</button></div>`).join(""):"<p class='muted'>السلة فارغة.</p>";cartTotal.textContent="المجموع: "+total.toLocaleString()+" DA"}
+function removeCart(id){cart=cart.filter(x=>x.id!==id);persistCart();render();openCart()}
+function checkout(){if(!cart.length)return alert("السلة فارغة");closeModal("cartModal");orderModal.classList.add("show")}
+orderForm.onsubmit=e=>{e.preventDefault();let id="RW-"+Math.floor(1000+Math.random()*9000);let lines=cart.map(x=>`${x.name} × ${x.qty} = ${x.qty*x.price} DA`).join("%0A");let total=cart.reduce((a,x)=>a+x.qty*x.price,0);let msg=`طلب RE-WEAR%0Aرقم الطلب: ${id}%0Aالاسم: ${encodeURIComponent(customer.value)}%0Aالهاتف: ${encodeURIComponent(phone.value)}%0Aالولاية: ${encodeURIComponent(wilaya.value)}%0Aالبلدية: ${encodeURIComponent(commune.value)}%0Aالمنتجات:%0A${encodeURIComponent(lines)}%0Aالمجموع: ${total} DA%0Aملاحظة: ${encodeURIComponent(note.value)}`;location.href=`https://wa.me/213781804711?text=${msg}`}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+function openAdmin(){adminModal.classList.add("show")}
+function showAdminPanel(){
+  login.style.display="none";
+  adminPanel.classList.add("show");
+  render();
+}
+function showLogin(){
+  login.style.display="block";
+  adminPanel.classList.remove("show");
+}
+function setLoginMsg(msg){
+  loginMsg.textContent=msg;
+  loginMsg.style.display=msg?"block":"none";
+}
+loginForm.onsubmit=async e=>{
+  e.preventDefault();
+  setLoginMsg("");
+  loginBtn.disabled=true;
+  loginBtn.textContent="جاري الدخول...";
+  const {error}=await sb.auth.signInWithPassword({
+    email:adminEmail.value.trim(),
+    password:adminPass.value
+  });
+  loginBtn.disabled=false;
+  loginBtn.textContent="دخول";
+  if(error){
+    setLoginMsg("بيانات الدخول غير صحيحة أو الحساب غير مؤكد.");
+    return;
+  }
+  adminPass.value="";
+  showAdminPanel();
+};
+async function adminLogout(){
+  await sb.auth.signOut();
+  showLogin();
+}
+sb.auth.onAuthStateChange((event, session)=>{
+  if(session) showAdminPanel();
+  else showLogin();
+});
+
+pimage.onchange=e=>{
+  let f=e.target.files[0];
+  if(!f)return;
+  if(f.size>2.5*1024*1024){
+    alert("الصورة لازم تكون أقل من 2.5MB");
+    e.target.value="";
+    return;
+  }
+  imageFile=f;
+  imageData="";
+  let r=new FileReader();
+  r.onload=()=>{
+    preview.src=r.result;
+    preview.style.display="block";
+  };
+  r.readAsDataURL(f);
+}
+async function uploadProductImage(file){
+  const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"")||"jpg";
+  const path=`products/${Date.now()}-${crypto.randomUUID()}.${ext}`;
+  const {error}=await sb.storage.from(PRODUCT_BUCKET).upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type||"image/jpeg"});
+  if(error){ console.error("Storage upload error:", error); throw new Error(`${error.message}${error.statusCode?` (HTTP ${error.statusCode})`:""}`); }
+  const {data}=sb.storage.from(PRODUCT_BUCKET).getPublicUrl(path);
+  return {url:data.publicUrl,path};
+}
+
+async function deleteProductImageByUrl(url){
+  if(!url || !url.includes("/storage/v1/object/public/product-images/")) return;
+  const path=decodeURIComponent(url.split("/storage/v1/object/public/product-images/")[1].split("?")[0]);
+  if(path) await sb.storage.from(PRODUCT_BUCKET).remove([path]);
+}
+
+async function saveProductToSupabase(data){
+  if(editing){
+    const p=products.find(x=>x.id===editing);
+    if(!p) throw new Error("Product not found");
+    let image_url=p.image_url||"";
+    if(imageFile){
+      const uploaded=await uploadProductImage(imageFile);
+      image_url=uploaded.url;
+      if(p.image_url) await deleteProductImageByUrl(p.image_url);
+    }
+    const {data:updated,error}=await sb.from("products").update({
+      name:data.name,
+      price:data.price,
+      old_price:data.old,
+      description:data.desc,
+      category:data.cat,
+      sizes:data.sizes,
+      colors:data.colors,
+      badge:data.badge,
+      image_url,
+      updated_at:new Date().toISOString()
+    }).eq("id",editing).select().single();
+    if(error) throw error;
+    products=products.map(x=>x.id===editing?updated:x);
+  }else{
+    let image_url="";
+    if(imageFile){
+      const uploaded=await uploadProductImage(imageFile);
+      image_url=uploaded.url;
+    }
+    const {data:created,error}=await sb.from("products").insert({
+      name:data.name,
+      price:data.price,
+      old_price:data.old,
+      description:data.desc,
+      category:data.cat,
+      sizes:data.sizes,
+      colors:data.colors,
+      badge:data.badge,
+      image_url,
+      stock:0
+    }).select().single();
+    if(error){
+      if(image_url) await deleteProductImageByUrl(image_url);
+      throw error;
+    }
+    products.push(created);
+  }
+}
+
+productForm.onsubmit=async e=>{
+  e.preventDefault();
+  const data={
+    name:pname.value.trim(),
+    price:Number(pprice.value),
+    old:Number(pold.value)||0,
+    desc:pdesc.value.trim(),
+    cat:pcat.value.trim()||"Other",
+    sizes:psizes.value.split(",").map(x=>x.trim()).filter(Boolean),
+    colors:pcolors.value.split(",").map(x=>x.trim()).filter(Boolean),
+    badge:pbadge.value
+  };
+  if(!data.name||data.price<0)return;
+  saveProduct.disabled=true;
+  saveProduct.textContent=editing?"جاري الحفظ...":"جاري الإضافة...";
+  try{
+    await saveProductToSupabase(data);
+    resetForm();
+    render();
+    alert("تم حفظ المنتج بنجاح");
+  }catch(err){
+    console.error(err);
+    alert("تعذر حفظ المنتج: "+(err.message||"خطأ غير معروف"));
+  }finally{
+    saveProduct.disabled=false;
+    saveProduct.textContent=editing?"حفظ التعديل":"حفظ المنتج";
+  }
+};
+
+async function editProduct(id){
+  let p=products.find(x=>x.id===id);
+  if(!p)return;
+  editing=id;
+  pname.value=p.name;
+  pprice.value=p.price;
+  pold.value=p.old_price||"";
+  pdesc.value=p.description||"";
+  pcat.value=p.category||"";
+  psizes.value=(p.sizes||[]).join(",");
+  pcolors.value=(p.colors||[]).join(",");
+  pbadge.value=p.badge||"";
+  imageData=p.image_url||"";
+  imageFile=null;
+  pimage.value="";
+  if(imageData){
+    preview.src=imageData;
+    preview.style.display="block";
+  }else{
+    preview.style.display="none";
+    preview.src="";
+  }
+  formTitle.textContent="تعديل المنتج";
+  saveProduct.textContent="حفظ التعديل";
+  cancelEdit.style.display="inline-block";
+}
+
+async function deleteProduct(id){
+  if(!confirm("حذف المنتج نهائيًا؟"))return;
+  try{
+    const p=products.find(x=>x.id===id);
+    const {error}=await sb.from("products").delete().eq("id",id);
+    if(error)throw error;
+    if(p?.image_url) await deleteProductImageByUrl(p.image_url);
+    products=products.filter(p=>p.id!==id);
+    cart=cart.filter(x=>x.id!==id);
+    persistCart();
+    render();
+    alert("تم حذف المنتج");
+  }catch(err){
+    console.error(err);
+    alert("تعذر حذف المنتج: "+(err.message||"خطأ غير معروف"));
+  }
+}
+
+function resetForm(){
+  editing=null;
+  imageData="";
+  imageFile=null;
+  productForm.reset();
+  preview.style.display="none";
+  preview.src="";
+  formTitle.textContent="إضافة منتج";
+  saveProduct.textContent="حفظ المنتج";
+  cancelEdit.style.display="none";
+}
+
+cancelEdit.onclick=resetForm;
+function renderAdmin(){
+  adminList.innerHTML=products.map(p=>`<div class="admin-item"><div class="admin-top">${p.image_url?`<img class="thumb" src="${esc(p.image_url)}">`:`<div class="thumb placeholder" style="font-size:18px">RW</div>`}<b>${esc(p.name)}</b><span>${Number(p.price).toLocaleString()} DA</span><div class="admin-actions"><button class="iconbtn" onclick="editProduct(${p.id})">تعديل</button><button class="iconbtn danger" onclick="deleteProduct(${p.id})">حذف</button></div></div></div>`).join("");
+}
+theme.onclick=()=>{document.body.classList.toggle("light");localStorage.setItem(THEME,document.body.classList.contains("light")?"light":"dark");knob.textContent=document.body.classList.contains("light")?"☀":"☾"};if(localStorage.getItem(THEME)==="light")document.body.classList.add("light");knob.textContent=document.body.classList.contains("light")?"☀":"☾";
+const productsEl=document.getElementById("products");
+async function loadProducts(){
+  const {data,error}=await sb.from("products").select("*").order("created_at",{ascending:false});
+  if(error){
+    console.error(error);
+    products=[];
+    alert("تعذر تحميل المنتجات من Supabase.");
+    render();
+    return;
+  }
+  products=data||[];
+  render();
+}
+loadProducts();
+</script></body></html>
