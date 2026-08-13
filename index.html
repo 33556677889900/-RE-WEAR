@@ -8,7 +8,10 @@
 body.light{--bg:#f1e7d5;--card:#fff8ec;--text:#34251b;--muted:#796657;--a:#8a5a3b;--a2:#67422d;--border:#d8c5ad}
 *{box-sizing:border-box}html{scroll-behavior:smooth;width:100%;max-width:100%;overflow-x:hidden}body{margin:0;width:100%;max-width:100%;overflow-x:hidden;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text);transition:.2s}button,input,select{font:inherit}a{text-decoration:none;color:inherit}
 nav{height:70px;position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 max(24px,12%);background:var(--bg);border-bottom:1px solid var(--border)}.logo{font-size:23px;font-weight:900;letter-spacing:4px}.links{display:flex;gap:25px;font-size:13px;justify-content:center;align-items:center;white-space:nowrap}.actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;min-width:0}.actions .switch{margin:0}
-.switch{width:50px;height:28px;min-width:50px;box-sizing:border-box;display:flex;align-items:center;border-radius:20px;border:1px solid var(--border);background:var(--card);padding:3px;cursor:pointer;overflow:hidden;flex:0 0 50px}.knob{width:20px;height:20px;min-width:20px;flex:0 0 20px;border-radius:50%;background:var(--a);display:flex;align-items:center;justify-content:center;transition:.2s;font-size:11px;box-sizing:border-box}.light .knob{transform:translateX(21px)}[dir="rtl"] .light .knob{transform:translateX(-21px)}
+.switch{width:54px;height:32px;min-width:54px;box-sizing:border-box;display:flex;align-items:center;border-radius:8px;border:1px solid var(--border);background:var(--bg);padding:3px;cursor:pointer;overflow:hidden;flex:0 0 54px;position:relative;transition:background .2s,border-color .2s}.knob{width:24px;height:24px;min-width:24px;flex:0 0 24px;border-radius:5px;background:var(--a);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;font-size:13px;line-height:1;font-family:"Noto Sans Symbols 2","Segoe UI Symbol",system-ui,sans-serif;box-sizing:border-box;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.18)}.light .knob{transform:translateX(21px)}[dir="rtl"] .light .knob{transform:translateX(-21px)}
+/* Theme toggle: pill track + compact rectangular thumb, never a circular icon. */
+nav .switch .knob{position:relative;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;text-indent:0!important;border-radius:5px!important;}
+nav .switch:focus-visible{outline:2px solid var(--a);outline-offset:2px;}
 .iconbtn{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 11px;border-radius:8px;cursor:pointer}.cartbtn{position:relative}.count{position:absolute;top:-7px;left:-7px;background:var(--a);color:white;font-size:11px;min-width:19px;height:19px;border-radius:50%;display:none;align-items:center;justify-content:center}
 .hero{min-height:78vh;display:flex;align-items:center;padding:8% 7%;background:radial-gradient(circle at 20% 40%,color-mix(in srgb,var(--a) 30%,transparent),transparent 36%)}.eyebrow{color:var(--a);font-weight:800;letter-spacing:3px}.hero h1{font-size:clamp(58px,11vw,130px);line-height:.84;margin:18px 0;letter-spacing:-5px}.hero p{max-width:560px;color:var(--muted);line-height:1.7}.btn{border:0;background:var(--a);color:#fff;padding:12px 19px;border-radius:8px;font-weight:800;cursor:pointer}.btn:hover{background:var(--a2)}.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
 section{padding:65px 7%}.title{font-size:34px;margin:0 0 25px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.chip{border:1px solid var(--border);background:var(--card);color:var(--text);padding:9px 13px;border-radius:20px;cursor:pointer}.chip.active{background:var(--a);color:white}
@@ -90,12 +93,721 @@ nav{min-width:0}
   .logo{font-size:19px;letter-spacing:2px;white-space:nowrap}
   .actions{gap:3px;justify-content:flex-end}
   .actions .iconbtn{padding:6px 7px;min-width:0;line-height:1}
-  .actions .switch{width:44px;min-width:44px;flex-basis:44px;height:26px;padding:2px}
-  .actions .switch .knob{width:20px;min-width:20px;height:20px}
+  .actions .switch{width:46px;min-width:46px;flex-basis:46px;height:26px;padding:2px}
+  .actions .switch .knob{width:24px;min-width:24px;height:24px;border-radius:5px}
 }
 
 .order-confirm-box{width:min(620px,calc(100vw - 24px));padding:22px}.status-modal-head{display:flex;align-items:center;gap:13px;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--border)}.status-modal-head h2{margin:0 0 4px;font-size:23px}.status-modal-head p{margin:0}.status-modal-icon{width:46px;height:46px;flex:0 0 46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;background:color-mix(in srgb,var(--a) 18%,transparent);border:1px solid color-mix(in srgb,var(--a) 45%,var(--border));color:var(--a)}.status-modal-icon.reject{background:color-mix(in srgb,var(--danger) 16%,transparent);border-color:color-mix(in srgb,var(--danger) 45%,var(--border));color:var(--danger)}.order-customer-card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-bottom:15px}.customer-field{padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--bg)}.customer-field span{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}.customer-field b{font-size:13px;word-break:break-word}.order-detail{border:1px solid var(--border);border-radius:12px;padding:5px 12px;background:var(--bg)}.order-detail .invoice-item{padding:11px 0}.status-question{margin:15px 0 0;padding:12px 14px;border-radius:10px;background:color-mix(in srgb,var(--a) 9%,var(--bg));border:1px solid var(--border);font-weight:800;text-align:center}.status-modal-actions{display:flex;gap:9px;margin-top:15px}.status-modal-actions button{flex:1}.status-modal-actions .iconbtn{padding:12px}.status-modal-actions .danger-confirm{background:var(--danger)!important;color:#fff;border:0}.status-label-confirm{color:var(--a)}.status-label-reject{color:var(--danger)}
 @media(max-width:480px){.order-customer-card{grid-template-columns:1fr}.order-confirm-box{padding:18px}.status-modal-head h2{font-size:20px}}
+
+/* Theme synchronization: every visual layer follows the selected theme. */
+body.light .hero .eyebrow{color:var(--a)!important;border-color:color-mix(in srgb,var(--a) 35%,var(--border));background:color-mix(in srgb,var(--a) 8%,transparent)!important}
+body.light .hero .btn{color:#fff!important}
+body.light .hero .btn:hover{box-shadow:0 18px 45px color-mix(in srgb,var(--a2) 28%,transparent)!important}
+body.light #productModal .close{background:color-mix(in srgb,var(--card) 88%,transparent)!important;color:var(--text)!important}
+body.light #ordersList .order-delete-btn{border-color:color-mix(in srgb,var(--danger) 35%,var(--border));color:var(--danger)}
+/* RE-WEAR Product Modal Pro */
+#productModal .product-pro{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:22px;
+  align-items:start;
+}
+#productModal .product-media{min-width:0}
+#productModal .product-main-image{
+  width:100%; height:min(52vh,460px); min-height:300px;
+  object-fit:cover; display:block; border-radius:16px;
+  border:1px solid var(--border); background:var(--bg);
+}
+#productModal .product-thumbs{
+  display:flex; gap:8px; overflow-x:auto; padding:10px 1px 2px;
+  scrollbar-width:thin;
+}
+#productModal .product-thumb{
+  flex:0 0 68px; width:68px; height:68px; padding:0;
+  border:1px solid var(--border); border-radius:10px; overflow:hidden;
+  background:var(--bg); cursor:pointer;
+}
+#productModal .product-thumb.selected{border:2px solid var(--a)}
+#productModal .product-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+#productModal .product-info{min-width:0;display:flex;flex-direction:column;gap:12px}
+#productModal .product-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+#productModal .product-title{margin:0;font-size:clamp(24px,4vw,34px);line-height:1.05}
+#productModal .product-description{margin:0;line-height:1.7}
+#productModal .product-price{font-size:28px;font-weight:950;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#productModal .product-old{font-size:15px;text-decoration:line-through;color:var(--muted);font-weight:600}
+#productModal .product-meta{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--bg)
+}
+#productModal .product-option h4{margin:0 0 8px}
+#productModal .product-actions{
+  display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;
+  margin-top:4px;
+}
+#productModal .product-add{
+  min-height:48px;font-size:16px;font-weight:900;
+}
+#productModal .product-suggest{border-top:1px solid var(--border);padding-top:15px;margin-top:3px}
+#productModal .suggest-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px
+}
+#productModal .suggest-card{
+  padding:0;overflow:hidden;text-align:left;border:1px solid var(--border);
+  border-radius:11px;background:var(--bg);color:var(--text);cursor:pointer
+}
+#productModal .suggest-card img,.suggest-card .suggest-placeholder{
+  width:100%;height:86px;object-fit:cover;display:block;background:var(--card)
+}
+#productModal .suggest-card span{display:block;padding:8px;font-weight:800;font-size:12px}
+#productModal .product-fav{
+  width:42px;height:42px;flex:0 0 42px;border-radius:50%;
+  border:1px solid var(--border);background:var(--bg);color:var(--text);
+  cursor:pointer;font-size:20px
+}
+@media(max-width:760px){
+  #productModal{padding:8px;align-items:flex-end}
+  #productModal .box{
+    width:100%;max-width:100%;max-height:calc(100dvh - 12px);
+    padding:12px;border-radius:18px 18px 10px 10px;
+  }
+  #productModal .product-pro{grid-template-columns:1fr;gap:14px}
+  #productModal .product-main-image{height:38vh;min-height:220px;max-height:330px;border-radius:14px}
+  #productModal .product-info{gap:10px}
+  #productModal .product-title{font-size:25px}
+  #productModal .product-price{font-size:24px}
+  #productModal .product-meta{grid-template-columns:1fr;gap:8px;padding:10px}
+  #productModal .product-actions{
+    position:sticky;bottom:0;background:var(--card);
+    padding-top:8px;margin-top:0;z-index:3
+  }
+  #productModal .product-add{width:100%}
+  #productModal .suggest-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #productModal .suggest-card img,#productModal .suggest-card .suggest-placeholder{height:72px}
+}
+
+
+/* Compact product modal */
+#productModal .product-pro{gap:14px}
+#productModal .product-main-image{
+  height:min(38vh,330px);
+  min-height:220px;
+  border-radius:14px;
+}
+#productModal .product-thumbs{padding:6px 1px 1px;gap:6px}
+#productModal .product-thumb{flex-basis:56px;width:56px;height:56px}
+#productModal .product-info{gap:8px}
+#productModal .product-title{font-size:clamp(22px,3.5vw,30px)}
+#productModal .product-description{line-height:1.45}
+#productModal .product-price{font-size:24px}
+#productModal .product-meta{padding:9px;gap:8px}
+#productModal .product-option h4{margin-bottom:5px}
+#productModal .product-actions{margin-top:0}
+#productModal .product-suggest{padding-top:9px}
+#productModal .product-suggest h4{margin:0 0 7px}
+#productModal .suggest-card img,#productModal .suggest-card .suggest-placeholder{height:62px}
+@media(max-width:760px){
+  #productModal .box{
+    max-height:calc(100dvh - 8px);
+    padding:10px;
+    border-radius:16px 16px 8px 8px;
+  }
+  #productModal .product-pro{gap:9px}
+  #productModal .product-main-image{
+    height:27vh;
+    min-height:165px;
+    max-height:235px;
+  }
+  #productModal .product-thumbs{padding:4px 0 0}
+  #productModal .product-thumb{width:50px;height:50px;flex-basis:50px}
+  #productModal .product-info{gap:7px}
+  #productModal .product-title{font-size:22px}
+  #productModal .product-description{font-size:13px;line-height:1.35}
+  #productModal .product-price{font-size:21px}
+  #productModal .product-meta{padding:7px}
+  #productModal .product-actions{padding-top:5px}
+  #productModal .product-add{min-height:44px}
+  #productModal .suggest-card img,#productModal .suggest-card .suggest-placeholder{height:52px}
+  #productModal .suggest-card span{padding:5px;font-size:11px}
+}
+
+
+/* Smaller action buttons — image/layout untouched */
+.card .btn,
+.product-card .btn,
+.btn[data-action="add-cart"],
+.add-cart-btn{
+  font-size:12px !important;
+  min-height:36px !important;
+  padding:7px 10px !important;
+  border-radius:9px !important;
+}
+.card .details-btn,
+.product-card .details-btn,
+.btn.details,
+.btn[data-action="details"]{
+  font-size:12px !important;
+  min-height:34px !important;
+  padding:6px 9px !important;
+  border-radius:9px !important;
+}
+.card .actions,
+.product-card .actions,
+.product-actions-row{
+  gap:6px !important;
+}
+@media(max-width:760px){
+  .card .btn,
+  .product-card .btn,
+  .btn[data-action="add-cart"],
+  .add-cart-btn{
+    font-size:11px !important;
+    min-height:34px !important;
+    padding:6px 8px !important;
+  }
+  .card .details-btn,
+  .product-card .details-btn,
+  .btn.details,
+  .btn[data-action="details"]{
+    font-size:11px !important;
+    min-height:32px !important;
+    padding:5px 8px !important;
+  }
+}
+
+
+/* Ultra compact product information — image dimensions preserved */
+#productModal .product-info{gap:4px !important}
+#productModal .product-head{gap:7px !important}
+#productModal .product-title{font-size:20px !important;line-height:1.05 !important}
+#productModal .product-description{font-size:12px !important;line-height:1.25 !important}
+#productModal .product-price{font-size:19px !important;line-height:1.1 !important;gap:6px !important}
+#productModal .product-old{font-size:12px !important}
+#productModal .product-meta{padding:5px !important;gap:5px !important}
+#productModal .product-option h4{font-size:12px !important;margin:0 0 3px !important}
+#productModal .swatches{gap:4px !important}
+#productModal .swatch{min-width:30px !important;height:27px !important;padding:3px 7px !important;font-size:11px !important}
+#productModal .product-actions{gap:5px !important;padding-top:3px !important}
+#productModal .qty{height:34px !important}
+#productModal .qty button{width:28px !important}
+#productModal .product-add{min-height:34px !important;font-size:12px !important;padding:5px 8px !important}
+#productModal .product-suggest{padding-top:5px !important}
+#productModal .product-suggest h4{font-size:12px !important;margin:0 0 4px !important}
+#productModal .suggest-grid{gap:5px !important}
+#productModal .suggest-card img,
+#productModal .suggest-card .suggest-placeholder{height:45px !important}
+#productModal .suggest-card span{padding:4px !important;font-size:10px !important}
+#productModal .product-fav{width:36px !important;height:36px !important;flex-basis:36px !important;font-size:17px !important}
+
+@media(max-width:760px){
+  #productModal .box{padding:8px !important}
+  #productModal .product-pro{gap:7px !important}
+  #productModal .product-info{gap:4px !important}
+  #productModal .product-title{font-size:19px !important}
+  #productModal .product-description{font-size:11px !important}
+  #productModal .product-price{font-size:18px !important}
+  #productModal .product-meta{padding:4px !important}
+  #productModal .product-option h4{font-size:11px !important}
+  #productModal .swatch{height:25px !important;font-size:10px !important}
+  #productModal .product-add{min-height:33px !important;font-size:11px !important}
+}
+
+
+/* MAX COMPACT — image untouched */
+#productModal .product-info{gap:1px !important}
+#productModal .product-head{margin:0 !important;gap:3px !important}
+#productModal .product-title{font-size:16px !important;line-height:1 !important;margin:0 !important}
+#productModal .product-description{font-size:9px !important;line-height:1.05 !important;margin:0 !important}
+#productModal .product-price{font-size:15px !important;line-height:1 !important;margin:0 !important;gap:3px !important}
+#productModal .product-old{font-size:9px !important}
+#productModal .badge{font-size:8px !important;padding:2px 4px !important}
+#productModal .product-meta{padding:2px !important;gap:2px !important;margin:0 !important}
+#productModal .product-option h4{font-size:9px !important;line-height:1 !important;margin:0 0 1px !important}
+#productModal .swatches{gap:2px !important}
+#productModal .swatch{min-width:25px !important;height:21px !important;padding:1px 4px !important;font-size:8px !important}
+#productModal .product-actions{gap:2px !important;padding-top:1px !important;margin:0 !important}
+#productModal .qty{height:27px !important}
+#productModal .qty button{width:22px !important;font-size:12px !important}
+#productModal #detailQty{font-size:10px !important}
+#productModal .product-add{min-height:27px !important;font-size:9px !important;padding:2px 5px !important}
+#productModal .product-fav{width:28px !important;height:28px !important;flex-basis:28px !important;font-size:13px !important}
+#productModal .product-suggest{padding-top:2px !important;margin-top:0 !important}
+#productModal .product-suggest h4{font-size:9px !important;margin:0 0 2px !important}
+#productModal .suggest-grid{gap:2px !important}
+#productModal .suggest-card{border-radius:6px !important}
+#productModal .suggest-card img,
+#productModal .suggest-card .suggest-placeholder{height:32px !important}
+#productModal .suggest-card span{padding:2px !important;font-size:8px !important;line-height:1 !important}
+
+/* DO NOT CHANGE IMAGE SIZE */
+#productModal .product-main-image{
+  height:27vh !important;
+  min-height:165px !important;
+  max-height:235px !important;
+}
+#productModal .product-thumbs{padding:2px 0 0 !important;gap:3px !important}
+#productModal .product-thumb{width:44px !important;height:44px !important;flex-basis:44px !important}
+
+@media(max-width:760px){
+  #productModal .box{padding:5px !important}
+  #productModal .product-pro{gap:3px !important}
+  #productModal .product-main-image{
+    height:27vh !important;
+    min-height:165px !important;
+    max-height:235px !important;
+  }
+}
+
+
+/* TIGHT FRAME — shrink the modal box itself, not the product image */
+#productModal{
+  padding:3px !important;
+  align-items:center !important;
+}
+#productModal .box{
+  width:fit-content !important;
+  max-width:min(96vw,900px) !important;
+  padding:5px !important;
+  margin:0 auto !important;
+  border-radius:10px !important;
+  gap:0 !important;
+}
+#productModal .product-pro{
+  gap:5px !important;
+}
+#productModal .product-media{
+  margin:0 !important;
+  padding:0 !important;
+}
+#productModal .product-info{
+  padding:0 !important;
+  margin:0 !important;
+}
+#productModal .product-thumbs{
+  margin:0 !important;
+}
+#productModal .product-suggest{
+  margin-bottom:0 !important;
+}
+#productModal .close{
+  width:26px !important;
+  height:26px !important;
+  padding:0 !important;
+  top:5px !important;
+  right:5px !important;
+}
+@media(max-width:760px){
+  #productModal{
+    padding:2px !important;
+    align-items:center !important;
+  }
+  #productModal .box{
+    width:fit-content !important;
+    max-width:98vw !important;
+    padding:4px !important;
+    border-radius:9px !important;
+  }
+  #productModal .product-pro{gap:3px !important}
+}
+
+
+/* PRODUCT CARD INFO PANEL COMPACT — image is intentionally untouched */
+.card > .info{
+  padding:9px !important;
+}
+.card > .info h3{
+  margin:0 0 3px !important;
+  font-size:18px !important;
+  line-height:1.05 !important;
+}
+.card > .info > .muted{
+  font-size:10px !important;
+  line-height:1.15 !important;
+  margin:0 !important;
+}
+.card > .info .price{
+  margin:4px 0 !important;
+  font-size:17px !important;
+  line-height:1 !important;
+}
+.card > .info .old{
+  font-size:10px !important;
+  margin-left:3px !important;
+}
+.card > .info .actionsrow{
+  gap:4px !important;
+  margin-top:5px !important;
+}
+.card > .info .actionsrow .btn{
+  min-height:32px !important;
+  padding:5px 7px !important;
+  font-size:11px !important;
+  border-radius:8px !important;
+}
+@media(max-width:760px){
+  .card > .info{
+    padding:7px !important;
+  }
+  .card > .info h3{
+    font-size:16px !important;
+  }
+  .card > .info > .muted{
+    font-size:9px !important;
+  }
+  .card > .info .price{
+    font-size:15px !important;
+    margin:3px 0 !important;
+  }
+  .card > .info .old{
+    font-size:9px !important;
+  }
+  .card > .info .actionsrow{
+    gap:3px !important;
+    margin-top:4px !important;
+  }
+  .card > .info .actionsrow .btn{
+    min-height:30px !important;
+    padding:4px 6px !important;
+    font-size:10px !important;
+  }
+}
+
+
+/* Delete-order X */
+#ordersList{display:flex!important;flex-direction:column!important;gap:9px!important;align-items:stretch!important;}
+#ordersList .admin-item{position:relative}
+#ordersList .admin-top{position:relative;padding-left:36px !important}
+#ordersList .order-delete-btn{
+  position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;padding:0;border:1px solid rgba(255,80,100,.35);
+  border-radius:8px;background:transparent;color:#ff5b72;
+  font-size:20px;line-height:24px;font-weight:900;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:.15s ease;
+}
+#ordersList .order-delete-btn:hover{
+  background:rgba(255,80,100,.12);
+  border-color:#ff5b72;
+  transform:translateY(-50%) scale(1.05);
+}
+#ordersList .order-delete-btn:disabled{opacity:.5;cursor:wait}
+@media(max-width:768px){
+  #ordersList .admin-top{padding-left:34px !important}
+  #ordersList .order-delete-btn{width:26px;height:26px;font-size:18px}
+}
+
+
+/* ================= RE-WEAR ULTIMATE VISUAL UPGRADE ================= */
+:root{--a:#a855f7;--a2:#7c3aed;--glow:rgba(168,85,247,.22);--hero-start:#08070b;--hero-mid:#100b18;--hero-end:#08070b;--hero-text:#f8f5fb;--hero-muted:#d0cad8;--hero-ring:rgba(255,255,255,.08);--hero-ghost:rgba(255,255,255,.025)}
+body.light{--a:#8a5a3b;--a2:#67422d;--glow:rgba(138,90,59,.20);--hero-start:#f1e7d5;--hero-mid:#fff8ec;--hero-end:#eadcc6;--hero-text:#34251b;--hero-muted:#796657;--hero-ring:rgba(52,37,27,.10);--hero-ghost:rgba(52,37,27,.045)}
+nav{height:64px!important;padding:0 max(18px,7vw)!important;backdrop-filter:blur(18px)!important;background:color-mix(in srgb,var(--bg) 84%,transparent)!important;box-shadow:0 8px 30px rgba(0,0,0,.10)!important}
+.logo{font-size:21px!important;letter-spacing:5px!important}
+.links a{position:relative;transition:.2s}.links a:after{content:"";position:absolute;left:50%;right:50%;bottom:-8px;height:2px;background:var(--a);transition:.2s}.links a:hover:after{left:0;right:0}
+.iconbtn,.switch{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important}.iconbtn:hover{transform:translateY(-2px);border-color:var(--a)!important;box-shadow:0 8px 22px var(--glow)}
+.hero{min-height:clamp(520px,76vh,760px)!important;margin:0!important;padding:clamp(42px,8vw,90px) max(22px,9vw)!important;display:flex!important;align-items:center!important;position:relative;overflow:hidden;background:radial-gradient(circle at 78% 28%,color-mix(in srgb,var(--a) 30%,transparent),transparent 30%),radial-gradient(circle at 18% 80%,color-mix(in srgb,var(--a2) 15%,transparent),transparent 30%),linear-gradient(135deg,var(--hero-start) 0%,var(--hero-mid) 48%,var(--hero-end) 100%)!important;border-bottom:1px solid var(--border)}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid var(--hero-ring);border-radius:50%;right:-180px;top:-160px;box-shadow:0 0 0 70px color-mix(in srgb,var(--hero-ring) 35%,transparent),0 0 0 140px color-mix(in srgb,var(--hero-ring) 18%,transparent)}
+.hero:after{content:"RE-WEAR";position:absolute;right:6vw;bottom:-34px;font-size:clamp(100px,18vw,240px);font-weight:1000;letter-spacing:-.08em;color:var(--hero-ghost);pointer-events:none}
+.hero>div{position:relative;z-index:2;max-width:650px}.eyebrow{display:inline-flex!important;padding:7px 11px;border:1px solid rgba(168,85,247,.35);border-radius:999px;background:rgba(168,85,247,.08);font-size:11px!important;letter-spacing:2px;color:#d8b4fe!important;margin-bottom:18px}
+.hero h1{font-size:clamp(58px,10vw,132px)!important;line-height:.82!important;letter-spacing:-.075em!important;margin:0 0 28px!important;color:var(--hero-text)!important;text-shadow:0 12px 50px color-mix(in srgb,var(--text) 35%,transparent)}
+.hero p{max-width:520px!important;font-size:16px!important;line-height:1.8!important;color:var(--hero-muted)!important}
+.hero .btn{display:inline-flex!important;align-items:center;justify-content:center;margin-top:12px;padding:13px 19px!important;border-radius:11px!important;background:linear-gradient(135deg,var(--a),var(--a2))!important;box-shadow:0 14px 35px rgba(124,58,237,.28)!important;font-weight:900;letter-spacing:.5px;transition:.2s!important}.hero .btn:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(124,58,237,.38)!important}
+.drop-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.drop-strip>div{background:var(--card);padding:18px 16px;text-align:center}.drop-strip b{display:block;font-size:11px;letter-spacing:1.5px}.drop-strip span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+#shop{max-width:1180px!important;margin:0 auto!important;padding:72px max(18px,3vw)!important}#shop .title{font-size:clamp(28px,4vw,44px)!important;letter-spacing:-.04em!important;margin-bottom:8px!important}
+#filters{display:flex!important;gap:8px!important;overflow-x:auto!important;padding:8px 0 17px!important;scrollbar-width:none}#filters::-webkit-scrollbar{display:none}#filters button,.filters button{border-radius:999px!important;padding:8px 13px!important;white-space:nowrap;border:1px solid var(--border)!important;background:var(--card)!important;transition:.18s!important}#filters button:hover{border-color:var(--a)!important;transform:translateY(-1px)}
+#filters button.active,.filters button.active{background:var(--a)!important;color:#fff!important;border-color:var(--a)!important;box-shadow:0 0 0 2px color-mix(in srgb,var(--a) 18%,transparent)!important;font-weight:900!important;transform:translateY(-1px)!important;}
+.grid{gap:14px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}.card{border:1px solid var(--border)!important;border-radius:15px!important;overflow:hidden!important;background:var(--card)!important;box-shadow:0 10px 30px rgba(0,0,0,.08)!important;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease!important}.card:hover{transform:translateY(-5px)!important;border-color:rgba(168,85,247,.45)!important;box-shadow:0 20px 45px rgba(0,0,0,.18),0 0 0 1px rgba(168,85,247,.08)!important}.card .photo{transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .3s!important}.card:hover .photo{transform:scale(1.035)!important;filter:saturate(1.04)}.card>.info{padding:8px!important}.card>.info h3{font-size:15px!important;margin:0 0 3px!important}.card>.info .muted{font-size:10px!important}.card>.info .price{font-size:16px!important;margin:4px 0!important}.card>.info .actionsrow{margin-top:5px!important;gap:5px!important}.card>.info .actionsrow .btn{border-radius:8px!important}
+.about{max-width:1180px!important;margin:0 auto!important;padding:65px max(18px,3vw)!important;border-top:1px solid var(--border)}.about .title{font-size:38px!important}.contact{max-width:1180px!important;margin:0 auto!important;border-top:1px solid var(--border);padding-top:55px!important}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.links{gap:14px!important}nav{padding:0 12px!important}}
+@media(max-width:650px){nav{height:58px!important}.links{display:none!important}.logo{font-size:18px!important;letter-spacing:4px!important}.actions{gap:5px!important}.iconbtn{padding:7px 8px!important}.hero{min-height:590px!important;padding:44px 20px 62px!important}.hero h1{font-size:64px!important;margin-bottom:22px!important}.hero p{font-size:13px!important;line-height:1.65!important}.drop-strip{grid-template-columns:repeat(2,1fr)}.drop-strip>div{padding:13px 8px}#shop{padding:45px 10px!important}#shop .title{font-size:30px!important}.grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.card{border-radius:11px!important}}
+
+
+/* ================= PRODUCT MODAL — CLEAR / LARGE / ELEGANT ================= */
+#productModal{
+  padding:8px !important;
+  align-items:center !important;
+}
+#productModal .box{
+  width:min(960px,96vw) !important;
+  max-width:960px !important;
+  max-height:94dvh !important;
+  padding:10px !important;
+  border-radius:18px !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.48),0 0 0 1px rgba(168,85,247,.12) !important;
+}
+#productModal .product-pro{
+  display:grid !important;
+  grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr) !important;
+  gap:18px !important;
+  align-items:start !important;
+}
+#productModal .product-media{padding:0 !important;margin:0 !important}
+#productModal .product-main-image{
+  width:100% !important;
+  height:clamp(360px,56vh,560px) !important;
+  min-height:360px !important;
+  max-height:560px !important;
+  object-fit:cover !important;
+  display:block !important;
+  border-radius:15px !important;
+}
+#productModal .product-thumbs{
+  gap:7px !important;
+  padding:8px 1px 1px !important;
+}
+#productModal .product-thumb{
+  width:58px !important;
+  height:58px !important;
+  flex-basis:58px !important;
+  border-radius:10px !important;
+}
+#productModal .product-info{
+  gap:12px !important;
+  padding:5px 3px !important;
+}
+#productModal .product-head{gap:10px !important}
+#productModal .product-title{
+  font-size:clamp(25px,3vw,34px) !important;
+  line-height:1.05 !important;
+  margin:3px 0 0 !important;
+  letter-spacing:-.02em !important;
+}
+#productModal .product-description{
+  font-size:13px !important;
+  line-height:1.65 !important;
+  margin:0 !important;
+}
+#productModal .product-price{
+  font-size:26px !important;
+  line-height:1.1 !important;
+  gap:8px !important;
+  margin:0 !important;
+}
+#productModal .product-old{font-size:13px !important}
+#productModal .product-meta{
+  padding:11px !important;
+  gap:11px !important;
+  border-radius:13px !important;
+}
+#productModal .product-option h4{
+  font-size:13px !important;
+  margin:0 0 7px !important;
+}
+#productModal .swatches{gap:6px !important}
+#productModal .swatch{
+  min-width:38px !important;
+  height:34px !important;
+  padding:5px 10px !important;
+  font-size:12px !important;
+  border-radius:9px !important;
+}
+#productModal .product-actions{
+  gap:9px !important;
+  padding-top:0 !important;
+}
+#productModal .qty{height:44px !important}
+#productModal .qty button{width:38px !important;font-size:18px !important}
+#productModal #detailQty{font-size:14px !important}
+#productModal .product-add{
+  min-height:44px !important;
+  font-size:14px !important;
+  padding:8px 14px !important;
+  border-radius:10px !important;
+}
+#productModal .product-fav{
+  width:44px !important;
+  height:44px !important;
+  flex-basis:44px !important;
+  font-size:21px !important;
+}
+#productModal .product-suggest{
+  padding-top:10px !important;
+  margin-top:0 !important;
+}
+#productModal .product-suggest h4{
+  font-size:13px !important;
+  margin:0 0 8px !important;
+}
+#productModal .suggest-grid{gap:7px !important}
+#productModal .suggest-card{border-radius:9px !important}
+#productModal .suggest-card img,
+#productModal .suggest-card .suggest-placeholder{
+  height:70px !important;
+}
+#productModal .suggest-card span{
+  padding:6px !important;
+  font-size:10px !important;
+}
+#productModal .close{
+  width:38px !important;
+  height:38px !important;
+  border-radius:11px !important;
+  font-size:25px !important;
+  top:15px !important;
+  left:15px !important;
+  z-index:10 !important;
+  background:rgba(10,9,14,.72) !important;
+  backdrop-filter:blur(8px) !important;
+}
+@media(max-width:760px){
+  #productModal{
+    padding:5px !important;
+    align-items:center !important;
+  }
+  #productModal .box{
+    width:96vw !important;
+    max-width:96vw !important;
+    max-height:94dvh !important;
+    padding:7px !important;
+    border-radius:17px !important;
+  }
+  #productModal .product-pro{
+    grid-template-columns:1fr !important;
+    gap:9px !important;
+  }
+  #productModal .product-main-image{
+    height:40dvh !important;
+    min-height:285px !important;
+    max-height:430px !important;
+    border-radius:14px !important;
+  }
+  #productModal .product-thumbs{padding-top:6px !important}
+  #productModal .product-thumb{
+    width:54px !important;height:54px !important;flex-basis:54px !important;
+  }
+  #productModal .product-info{
+    gap:9px !important;
+    padding:2px 4px 5px !important;
+  }
+  #productModal .product-title{font-size:24px !important}
+  #productModal .product-description{
+    font-size:12px !important;
+    line-height:1.5 !important;
+  }
+  #productModal .product-price{font-size:24px !important}
+  #productModal .product-meta{
+    padding:9px !important;
+    gap:8px !important;
+  }
+  #productModal .product-option h4{
+    font-size:12px !important;
+    margin-bottom:5px !important;
+  }
+  #productModal .swatch{
+    min-width:36px !important;
+    height:32px !important;
+    padding:4px 9px !important;
+    font-size:11px !important;
+  }
+  #productModal .product-actions{
+    gap:7px !important;
+    position:sticky !important;
+    bottom:0 !important;
+    z-index:4 !important;
+    padding:6px 0 2px !important;
+    background:var(--card) !important;
+  }
+  #productModal .qty{height:42px !important}
+  #productModal .qty button{width:36px !important}
+  #productModal .product-add{
+    min-height:42px !important;
+    font-size:13px !important;
+  }
+  #productModal .product-suggest{
+    padding-top:6px !important;
+  }
+  #productModal .suggest-card img,
+  #productModal .suggest-card .suggest-placeholder{height:62px !important}
+}
+
+
+/* Product modal: centered, balanced, never pushed to the right */
+#productModal{
+  inset:0 !important;
+  width:100% !important;
+  display:none !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:10px !important;
+}
+#productModal.show{display:flex !important}
+#productModal > .box{
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:auto !important;
+  margin:0 auto !important;
+  transform:none !important;
+}
+
+/* If there are no same-category suggestions, remove the whole section. */
+#productModal .product-suggest:has(.suggest-grid:empty){display:none !important}
+
+@media(max-width:760px){
+  #productModal{padding:5px !important}
+  #productModal > .box{margin:0 auto !important}
+}
+
+
+/* NAVBAR — keep ADM neatly inside its button/frame */
+nav .actions{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:6px !important;
+  min-width:0 !important;
+  flex-wrap:nowrap !important;
+}
+nav .actions .iconbtn,
+nav .actions .switch{
+  flex:0 0 auto !important;
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+nav .actions > .iconbtn:last-child{
+  width:48px !important;
+  min-width:48px !important;
+  height:38px !important;
+  padding:0 7px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  line-height:1 !important;
+  font-size:11px !important;
+  letter-spacing:.3px !important;
+  border-radius:10px !important;
+}
+@media(max-width:520px){
+  nav{
+    padding-left:9px !important;
+    padding-right:9px !important;
+  }
+  nav .logo{
+    flex:0 0 auto !important;
+    font-size:17px !important;
+    letter-spacing:3px !important;
+  }
+  nav .actions{gap:4px !important}
+  nav .actions > .iconbtn,
+  nav .actions > .switch{
+    width:34px !important;
+    min-width:34px !important;
+    height:34px !important;
+    padding:0 !important;
+  }
+  nav .actions > .cartbtn{width:38px !important;min-width:38px !important}
+  nav .actions > .iconbtn:last-child{
+    width:40px !important;
+    min-width:40px !important;
+    height:34px !important;
+    font-size:9px !important;
+  }
+}
+
 </style>
 <style id="re-wear-v10-performance">
 html{scroll-behavior:smooth;}
@@ -148,9 +860,591 @@ img{content-visibility:auto;}
 @media(max-width:700px){#adminModal>.box{width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;max-height:calc(100dvh - 16px)!important;padding:16px!important}#adminPanel .dash{grid-template-columns:1fr 1fr!important}#adminPanel .admin-top{align-items:flex-start!important}}
 @media(max-width:430px){#adminModal>.box{width:calc(100vw - 12px)!important;max-width:calc(100vw - 12px)!important;padding:13px!important}#adminPanel .dash{grid-template-columns:1fr!important}}
 </style>
+<style id="re-wear-background-scroll-lock">
+/* Prevent the page underneath dialogs from moving on touch/scroll. */
+html.re-wear-scroll-lock,
+html.re-wear-scroll-lock body{overscroll-behavior:none!important;}
+body.re-wear-scroll-lock{
+  position:fixed!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  overflow:hidden!important;
+  touch-action:none!important;
+}
+.modal.show{overscroll-behavior:contain!important;}
+.modal.show > .box,
+#adminModal.show > .box,
+#adminPanel.show,
+#zoomOverlay.show{
+  overscroll-behavior:contain!important;
+}
+.modal.show > .box,
+#adminPanel.show{touch-action:pan-y!important;-webkit-overflow-scrolling:touch;}
+</style>
+<script id="re-wear-background-scroll-lock-js">
+(()=>{
+  'use strict';
+  let locked=false, savedY=0;
+  const root=document.documentElement;
+  const body=document.body;
+  const isOpen=()=>!!document.querySelector('.modal.show, #zoomOverlay.show');
+  function lock(){
+    if(locked)return;
+    savedY=window.scrollY||window.pageYOffset||0;
+    root.classList.add('re-wear-scroll-lock');
+    body.classList.add('re-wear-scroll-lock');
+    body.style.top=`-${savedY}px`;
+    locked=true;
+  }
+  function unlock(){
+    if(!locked)return;
+    body.classList.remove('re-wear-scroll-lock');
+    root.classList.remove('re-wear-scroll-lock');
+    body.style.top='';
+    locked=false;
+    window.scrollTo(0,savedY);
+  }
+  function sync(){ isOpen()?lock():unlock(); }
+  const observer=new MutationObserver(sync);
+  observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
+  document.addEventListener('touchmove',e=>{
+    if(!locked)return;
+    const dialog=e.target.closest?.('.modal.show > .box, #adminPanel.show, #zoomOverlay.show');
+    if(dialog)return;
+    e.preventDefault();
+  },{passive:false});
+  document.addEventListener('wheel',e=>{
+    if(!locked)return;
+    const dialog=e.target.closest?.('.modal.show > .box, #adminPanel.show, #zoomOverlay.show');
+    if(dialog)return;
+    e.preventDefault();
+  },{passive:false});
+  sync();
+})();
+</script>
+
+<script id="re-wear-scroll-interaction-v8">
+(()=>{
+  'use strict';
+  let raf=0, previous=new WeakMap();
+  const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+  const easeInOut=t=>t*t*(3-2*t);
+
+  function updateScrollFocus(){
+    raf=0;
+    const rows=document.querySelectorAll('#products .card .actionsrow');
+    if(!rows.length)return;
+    const vh=window.innerHeight||document.documentElement.clientHeight;
+    const target=vh*.52;
+    const activeRange=Math.max(150,vh*.30);
+
+    rows.forEach(row=>{
+      const r=row.getBoundingClientRect();
+      const center=r.top+r.height/2;
+      const distance=Math.abs(center-target);
+      const raw=clamp(1-distance/activeRange,0,1);
+
+      // Slow entry -> tiny energetic lift near the center -> slow settle.
+      const base=easeInOut(raw);
+      const bump=Math.sin(Math.PI*raw)*0.065;
+      const focus=clamp(base + bump,0,1);
+
+      const oldFocus=previous.get(row) ?? focus;
+      const entering=focus>=oldFocus;
+      previous.set(row,focus);
+
+      const card=row.closest('.card');
+      row.querySelectorAll('.btn').forEach(btn=>{
+        btn.style.setProperty('--rw-focus',focus.toFixed(3));
+        btn.style.setProperty('--rw-ease',
+          entering
+            ? 'transform .55s cubic-bezier(.18,.72,.22,1), box-shadow .45s ease, filter .45s ease'
+            : 'transform .9s cubic-bezier(.22,.72,.18,1), box-shadow .7s ease, filter .7s ease'
+        );
+        if(focus>.60)btn.setAttribute('data-rw-focus','hot');
+        else btn.removeAttribute('data-rw-focus');
+      });
+      if(card){
+        if(focus>.60)card.setAttribute('data-rw-focus','hot');
+        else card.removeAttribute('data-rw-focus');
+      }
+    });
+  }
+  function requestUpdate(){if(!raf)raf=requestAnimationFrame(updateScrollFocus)}
+  window.addEventListener('scroll',requestUpdate,{passive:true});
+  window.addEventListener('resize',requestUpdate,{passive:true});
+  document.addEventListener('DOMContentLoaded',requestUpdate,{once:true});
+  const products=document.getElementById('products');
+  if(products)new MutationObserver(requestUpdate).observe(products,{childList:true,subtree:true});
+  setTimeout(requestUpdate,250);
+})();
+</script>
+
+
+<script id="rewear-smooth-motion-js">
+(()=>{
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cards=()=>Array.from(document.querySelectorAll("#products .card"));
+  let ticking=false;
+  function updateMotion(){
+    ticking=false;
+    const vh=window.innerHeight;
+    const focusY=vh*.52;
+    cards().forEach(card=>{
+      const r=card.getBoundingClientRect();
+      const cy=r.top+r.height/2;
+      const distance=Math.abs(cy-focusY);
+      const zone=Math.max(110,vh*.24);
+      let t=1-distance/zone;
+      t=Math.max(0,Math.min(1,t));
+      /* smoothstep + gentle peak */
+      t=t*t*(3-2*t);
+      const lift=(-1.5*t).toFixed(2);
+      const scale=(1+0.012*t).toFixed(4);
+      const opacity=(.94+.06*t).toFixed(3);
+      card.style.setProperty("--scroll-lift",lift+"px");
+      card.style.setProperty("--scroll-scale",scale);
+      card.style.setProperty("--scroll-opacity",opacity);
+      card.classList.toggle("rewear-focus",t>.62);
+    });
+  }
+  function requestMotion(){
+    if(!ticking){ticking=true;requestAnimationFrame(updateMotion)}
+  }
+  addEventListener("scroll",requestMotion,{passive:true});
+  addEventListener("resize",requestMotion,{passive:true});
+  const products=document.getElementById("products");
+  if(products){
+    new MutationObserver(()=>{
+      cards().forEach(c=>c.classList.add("rewear-product-enter"));
+      requestMotion();
+    }).observe(products,{childList:true});
+  }
+  document.addEventListener("click",e=>{
+    const add=e.target.closest('.actionsrow .btn:last-child');
+    if(!add) return;
+    const cart=document.getElementById("cartBtn");
+    if(cart){
+      cart.classList.remove("rewear-cart-pulse");
+      void cart.offsetWidth;
+      cart.classList.add("rewear-cart-pulse");
+      setTimeout(()=>cart.classList.remove("rewear-cart-pulse"),460);
+    }
+  });
+  requestMotion();
+})();
+</script>
+
+
+<script id="rewear-full-motion-v10-js">
+(()=>{
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let raf=0;
+  const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+  function updateCards(){
+    raf=0;
+    const vh=innerHeight, focusY=vh*.52, zone=Math.max(130,vh*.30);
+    document.querySelectorAll('#products .card').forEach(card=>{
+      const r=card.getBoundingClientRect(), cy=r.top+r.height/2;
+      let t=clamp(1-Math.abs(cy-focusY)/zone);
+      // slow -> accelerate -> tiny peak -> slow return
+      t=t*t*(3-2*t);
+      const peak=t*t*(3-2*t);
+      card.style.setProperty('--rw-card-y',(-1.8*peak).toFixed(2)+'px');
+      card.style.setProperty('--rw-card-scale',(1+.006*peak).toFixed(4));
+      card.style.setProperty('--rw-card-opacity',(0.95+.05*peak).toFixed(3));
+      card.style.setProperty('--rw-img-scale',(1+.034*peak).toFixed(4));
+      card.style.setProperty('--rw-icon-scale',(1+.095*peak).toFixed(4));
+      card.style.setProperty('--rw-badge-scale',(1+.065*peak).toFixed(4));
+      card.querySelectorAll('.actionsrow .btn').forEach(btn=>{
+        btn.style.setProperty('--rw-btn-y',(-1.2*peak).toFixed(2)+'px');
+        btn.style.setProperty('--rw-btn-scale',(1+.10*peak).toFixed(4));
+        btn.classList.toggle('rewear-btn-hot',peak>.62);
+      });
+      card.querySelectorAll('.favbtn').forEach(icon=>{
+        icon.style.setProperty('--rw-icon-y',(-1.4*peak).toFixed(2)+'px');
+        icon.style.setProperty('--rw-icon-scale',(1+.095*peak).toFixed(4));
+      });
+      card.querySelectorAll('.badge').forEach(icon=>{
+        icon.style.setProperty('--rw-badge-y',(-1.0*peak).toFixed(2)+'px');
+        icon.style.setProperty('--rw-badge-scale',(1+.065*peak).toFixed(4));
+      });
+      card.classList.toggle('rewear-focus-v10',peak>.62);
+    });
+  }
+  function request(){if(!raf)raf=requestAnimationFrame(updateCards)}
+  addEventListener('scroll',request,{passive:true}); addEventListener('resize',request,{passive:true});
+  const products=document.getElementById('products');
+  if(products){
+    new MutationObserver(()=>{document.querySelectorAll('#products .card').forEach(c=>{if(!c.dataset.motionV10){c.dataset.motionV10='1';c.classList.add('rewear-enter-v10')}});request()}).observe(products,{childList:true,subtree:false});
+  }
+  document.querySelectorAll('#products .card').forEach(c=>{c.dataset.motionV10='1';c.classList.add('rewear-enter-v10')});
+  request();
+
+  // Fly the selected product image toward the cart after the real add-to-cart action.
+  document.addEventListener('click',e=>{
+    const add=e.target.closest('#productModal .product-add');
+    if(!add) return;
+    const img=document.querySelector('#productModal #productMainImage');
+    const cart=document.querySelector('nav .cartbtn');
+    if(!img||!cart||img.tagName!=='IMG') return;
+    const a=img.getBoundingClientRect(), b=cart.getBoundingClientRect();
+    const clone=img.cloneNode(true); clone.className='rewear-fly-img-v10';
+    const sx=Math.min(1,Math.max(.32,a.width?120/a.width:.5));
+    clone.style.left=a.left+'px'; clone.style.top=a.top+'px'; clone.style.width=Math.max(70,a.width*sx)+'px'; clone.style.height=Math.max(70,a.height*sx)+'px';
+    document.body.appendChild(clone);
+    const startX=a.left+(a.width*sx)/2, startY=a.top+(a.height*sx)/2;
+    const endX=b.left+b.width/2, endY=b.top+b.height/2;
+    const dx=endX-startX, dy=endY-startY;
+    requestAnimationFrame(()=>{
+      clone.style.transition='transform 1.35s cubic-bezier(.18,.72,.18,1),opacity 1.35s ease';
+      clone.style.transform=`translate3d(${dx}px,${dy}px,0) scale(.16)`;
+      clone.style.opacity='.18';
+    });
+    cart.classList.remove('rewear-cart-pulse-v10'); void cart.offsetWidth; cart.classList.add('rewear-cart-pulse-v10');
+    setTimeout(()=>{clone.remove();cart.classList.remove('rewear-cart-pulse-v10')},1400);
+  },true);
+
+  // Re-animate newly selected category cards without changing rendering logic.
+  document.addEventListener('click',e=>{
+    const chip=e.target.closest('.filters .chip'); if(!chip) return;
+    setTimeout(()=>{
+      document.querySelectorAll('#products .card').forEach((c,i)=>{c.classList.remove('rewear-enter-v10');void c.offsetWidth;c.style.animationDelay=Math.min(i*35,210)+'ms';c.classList.add('rewear-enter-v10')});
+      request();
+    },20);
+  });
+})();
+</script>
+
+<script id="rw-pro-v15-js">
+(function(){
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeOrderDrawer();closeDeleteOrderModal();}});
+  window.refreshAdminData=refreshAdminData;
+})();
+</script>
+</body></html>
+<style id="re-wear-theme-toggle-final-fix">
+/* FINAL THEME TOGGLE: compact horizontal rectangle, never a circular/square icon button */
+nav .actions > .switch#theme{
+  width:48px !important;
+  min-width:48px !important;
+  height:28px !important;
+  flex:0 0 48px !important;
+  padding:2px !important;
+  border-radius:7px !important;
+  border:1px solid var(--border) !important;
+  background:var(--card) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  position:relative !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
+}
+nav .actions > .switch#theme .knob{
+  width:22px !important;
+  min-width:22px !important;
+  height:22px !important;
+  flex:0 0 22px !important;
+  border-radius:5px !important;
+  margin:0 !important;
+  transform:translateX(0) !important;
+  background:var(--a) !important;
+  color:#fff !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  box-shadow:0 1px 3px rgba(0,0,0,.22) !important;
+}
+body.light nav .actions > .switch#theme .knob{
+  transform:translateX(22px) !important;
+}
+[dir="rtl"] body.light nav .actions > .switch#theme .knob{
+  transform:translateX(-22px) !important;
+}
+nav .actions > .switch#theme svg{
+  width:14px !important;
+  height:14px !important;
+  display:block !important;
+  flex:none !important;
+}
+@media(max-width:520px){
+  nav .actions > .switch#theme{
+    width:44px !important;
+    min-width:44px !important;
+    flex-basis:44px !important;
+    height:28px !important;
+    padding:2px !important;
+  }
+  nav .actions > .switch#theme .knob{
+    width:22px !important;
+    min-width:22px !important;
+    flex-basis:22px !important;
+    height:22px !important;
+    transform:translateX(0) !important;
+  }
+  body.light nav .actions > .switch#theme .knob{
+    transform:translateX(18px) !important;
+  }
+  [dir="rtl"] body.light nav .actions > .switch#theme .knob{
+    transform:translateX(-18px) !important;
+  }
+}
+</style>
+
+<style id="re-wear-cart-badge-final-fix">
+/* CART BADGE: keep the quantity badge fully visible and anchored to the cart button. */
+nav .actions > .cartbtn{
+  position:relative !important;
+  overflow:visible !important;
+  isolation:isolate;
+}
+nav .actions > .cartbtn .count{
+  position:absolute !important;
+  top:-7px !important;
+  right:-7px !important;
+  left:auto !important;
+  bottom:auto !important;
+  z-index:5 !important;
+  width:19px !important;
+  min-width:19px !important;
+  height:19px !important;
+  padding:0 !important;
+  margin:0 !important;
+  border-radius:50% !important;
+  display:none;
+  align-items:center !important;
+  justify-content:center !important;
+  line-height:19px !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+  overflow:visible !important;
+  pointer-events:none !important;
+  transform:none !important;
+}
+@media(max-width:520px){
+  nav .actions > .cartbtn .count{
+    top:-6px !important;
+    right:-6px !important;
+    width:18px !important;
+    min-width:18px !important;
+    height:18px !important;
+    line-height:18px !important;
+    font-size:10px !important;
+  }
+}
+</style>
+
+<style id="re-wear-scroll-interaction-v8">
+/* ===== Product actions: subtle scroll-reactive focus ===== */
+.actionsrow .btn{
+  --rw-focus:0;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transform:translate3d(0,calc(var(--rw-focus) * -1.5px),0)
+             scale(calc(1 + (var(--rw-focus) * .085)));
+  transform-origin:center center;
+  transition:
+    transform .16s cubic-bezier(.22,.75,.25,1),
+    box-shadow .22s ease,
+    border-color .22s ease,
+    filter .22s ease !important;
+  will-change:transform;
+}
+.actionsrow .btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.03) 48%,transparent 76%);
+  transform:translateX(-130%);
+  transition:transform .55s ease;
+  pointer-events:none;
+  z-index:-1;
+}
+.actionsrow .btn[data-rw-focus="hot"]{
+  box-shadow:0 7px 18px color-mix(in srgb,var(--a) 17%,transparent),0 0 0 1px color-mix(in srgb,var(--a) 11%,transparent);
+  border-color:color-mix(in srgb,var(--a) 62%,var(--border)) !important;
+  filter:saturate(1.05);
+}
+.actionsrow .btn[data-rw-focus="hot"]::after{transform:translateX(130%)}
+.card[data-rw-focus="hot"]{
+  border-color:color-mix(in srgb,var(--a) 38%,var(--border)) !important;
+  box-shadow:0 16px 38px rgba(0,0,0,.13),0 0 0 1px color-mix(in srgb,var(--a) 8%,transparent) !important;
+}
+@media(max-width:760px){
+  .actionsrow .btn{min-height:34px;}
+  .actionsrow .btn:active{transform:translateY(0) scale(.975) !important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .actionsrow .btn,.card{transition:none !important;}
+  .actionsrow .btn::after{display:none !important;}
+}
+</style>
+
+
+<style id="rewear-smooth-motion">
+/* RE-WEAR smooth motion layer: subtle, unified, mobile-friendly */
+@media (prefers-reduced-motion:no-preference){
+  .card{
+    --scroll-lift:0px;
+    --scroll-scale:1;
+    --scroll-opacity:1;
+    transform:translateY(var(--scroll-lift)) scale(var(--scroll-scale));
+    opacity:var(--scroll-opacity);
+    will-change:transform,opacity;
+  }
+  .card .actionsrow .btn{
+    --focus-scale:1;
+    transform:translateY(0) scale(var(--focus-scale));
+    will-change:transform;
+  }
+  .card img{
+    transform:scale(1);
+    transition:transform 700ms cubic-bezier(.22,.61,.36,1);
+    will-change:transform;
+  }
+  .card.rewear-focus img{transform:scale(1.022)}
+  .card.rewear-focus .actionsrow .btn{
+    transition:transform 650ms cubic-bezier(.22,1.45,.36,1),box-shadow 500ms ease;
+  }
+  .card.rewear-focus .actionsrow .btn:first-child{--focus-scale:1.06}
+  .card.rewear-focus .actionsrow .btn:last-child{--focus-scale:1.075}
+  .card.rewear-focus .actionsrow .btn:last-child{box-shadow:0 7px 18px rgba(0,0,0,.10)}
+  .modal.show .box{
+    animation:rewearModalIn 520ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .modal.show::before{animation:rewearBackdropIn 420ms ease both}
+  @keyframes rewearModalIn{
+    from{opacity:0;transform:translateY(14px) scale(.985)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+  }
+  @keyframes rewearBackdropIn{from{opacity:0}to{opacity:1}}
+  .card .actionsrow .btn:active{transition-duration:120ms;transform:scale(.965)!important}
+  #cartBtn.rewear-cart-pulse{animation:rewearCartPulse 420ms cubic-bezier(.22,1,.36,1)}
+  @keyframes rewearCartPulse{
+    0%{transform:scale(1)}
+    45%{transform:scale(1.075)}
+    100%{transform:scale(1)}
+  }
+  .rewear-product-enter{
+    animation:rewearProductEnter 620ms cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes rewearProductEnter{
+    from{opacity:.35;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+}
+</style>
+
+
+<style id="rewear-full-motion-v10">
+/* ===== RE-WEAR FULL SMOOTH MOTION SYSTEM ===== */
+@media (prefers-reduced-motion:no-preference){
+  :root{--rw-ease:cubic-bezier(.22,.72,.18,1);--rw-ease-soft:cubic-bezier(.18,.75,.2,1)}
+
+  /* 1) Cards: subtle entrance + focus breathing */
+  #products .card{
+    transition:transform .7s var(--rw-ease-soft),opacity .65s ease,box-shadow .55s var(--rw-ease),border-color .45s ease;
+    transform:translate3d(0,var(--rw-card-y,0px),0) scale(var(--rw-card-scale,1));
+    opacity:var(--rw-card-opacity,1);
+    will-change:transform,opacity;
+  }
+  #products .card.rewear-enter-v10{animation:rwCardEnter .72s var(--rw-ease) both}
+  @keyframes rwCardEnter{from{opacity:0;transform:translate3d(0,18px,0) scale(.985)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+  #products .card.rewear-focus-v10{box-shadow:0 18px 42px rgba(0,0,0,.14),0 0 0 1px color-mix(in srgb,var(--a) 9%,transparent)!important}
+
+  /* 2) Product image: tiny living zoom, never changes layout */
+  #products .card .photo,#products .card .placeholder{
+    transform:scale(var(--rw-img-scale,1));
+    transition:transform .9s var(--rw-ease-soft),filter .65s ease;
+    transform-origin:center center;
+    will-change:transform;
+  }
+  #products .card.rewear-focus-v10 .photo,#products .card.rewear-focus-v10 .placeholder{filter:saturate(1.025) contrast(1.01)}
+
+  /* 3) Actions: slow approach -> tiny lift -> soft settle */
+  #products .actionsrow .btn{
+    transform:translate3d(0,var(--rw-btn-y,0px),0) scale(var(--rw-btn-scale,1));
+    transition:transform .5s var(--rw-ease),box-shadow .45s ease,filter .45s ease,border-color .45s ease;
+    will-change:transform;
+  }
+  /* All product UI icons participate in the same focus motion. */
+  #products .card .favbtn{
+    transform:translate3d(0,var(--rw-icon-y,0px),0) scale(var(--rw-icon-scale,1));
+    transition:transform .55s var(--rw-ease),box-shadow .45s ease,border-color .45s ease,background .45s ease;
+    will-change:transform;
+  }
+  #products .card .badge{
+    transform:translate3d(0,var(--rw-badge-y,0px),0) scale(var(--rw-badge-scale,1));
+    transform-origin:center center;
+    transition:transform .55s var(--rw-ease),filter .45s ease;
+    will-change:transform;
+  }
+  #products .card.rewear-focus-v10 .favbtn{
+    box-shadow:0 7px 18px color-mix(in srgb,var(--a) 13%,transparent);
+  }
+  #products .card.rewear-focus-v10 .badge{filter:saturate(1.04)}
+  #products .actionsrow .btn:hover{transform:translate3d(0,-2px,0) scale(1.025)!important;box-shadow:0 9px 22px color-mix(in srgb,var(--a) 16%,transparent)}
+  #products .actionsrow .btn:active{transform:translate3d(0,1px,0) scale(.975)!important;transition-duration:.1s}
+  #products .actionsrow .btn.rewear-btn-hot{box-shadow:0 9px 22px color-mix(in srgb,var(--a) 13%,transparent)}
+
+  /* 4) Add-to-cart confirmation: subtle pulse + flying image */
+  .rewear-cart-pulse-v10{animation:rwCartPulse .58s var(--rw-ease)}
+  @keyframes rwCartPulse{0%{transform:scale(1)}28%{transform:scale(1.09)}55%{transform:scale(.985)}100%{transform:scale(1)}}
+  .rewear-fly-img-v10{position:fixed;z-index:10000;pointer-events:none;object-fit:cover;border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.28);will-change:transform,opacity}
+
+  /* 5) Product modal: backdrop fade + box rise + stagger */
+  #productModal{background:rgba(0,0,0,.0);transition:background .38s ease}
+  #productModal.show{background:rgba(0,0,0,.66)}
+  #productModal .box{opacity:0;transform:translate3d(0,16px,0) scale(.985);transition:opacity .48s var(--rw-ease),transform .58s var(--rw-ease)}
+  #productModal.show .box{opacity:1;transform:translate3d(0,0,0) scale(1)}
+  #productModal.show .product-media{animation:rwModalItem .55s .04s var(--rw-ease) both}
+  #productModal.show .product-info>*{animation:rwModalItem .5s var(--rw-ease) both}
+  #productModal.show .product-info>*:nth-child(1){animation-delay:.08s}
+  #productModal.show .product-info>*:nth-child(2){animation-delay:.12s}
+  #productModal.show .product-info>*:nth-child(3){animation-delay:.16s}
+  #productModal.show .product-info>*:nth-child(4){animation-delay:.20s}
+  #productModal.show .product-info>*:nth-child(5){animation-delay:.24s}
+  #productModal.show .product-info>*:nth-child(6){animation-delay:.28s}
+  @keyframes rwModalItem{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  /* 6) Theme toggle: polished motion */
+  nav .switch{transition:background .3s var(--rw-ease),border-color .3s ease,box-shadow .3s ease}
+  nav .switch .knob{transition:transform .42s var(--rw-ease),background .3s ease,box-shadow .3s ease}
+  nav .switch:active .knob{transform:scale(.9)}
+
+  /* 7) Categories: active indicator + smooth selection */
+  .filters .chip{position:relative;transition:transform .35s var(--rw-ease),background .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease}
+  .filters .chip::after{content:"";position:absolute;left:18%;right:18%;bottom:-5px;height:2px;border-radius:3px;background:var(--a);transform:scaleX(0);transform-origin:center;transition:transform .35s var(--rw-ease)}
+  .filters .chip.active{box-shadow:0 7px 18px color-mix(in srgb,var(--a) 18%,transparent);transform:translateY(-1px)}
+  .filters .chip.active::after{transform:scaleX(1)}
+  .filters .chip:active{transform:scale(.96)}
+
+  /* 8) Suggestion cards + product thumbs */
+  #productModal .suggest-card{transition:transform .4s var(--rw-ease),border-color .35s ease,box-shadow .35s ease}
+  #productModal .suggest-card:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 10px 24px rgba(0,0,0,.14);border-color:color-mix(in srgb,var(--a) 45%,var(--border))}
+  #productModal .product-thumb{transition:transform .3s var(--rw-ease),border-color .3s ease}
+  #productModal .product-thumb:hover{transform:translateY(-2px)}
+
+  /* General micro interactions */
+  .btn,.iconbtn,.favbtn,.swatch,.choice,.optionbtn{transition:transform .28s var(--rw-ease),box-shadow .28s ease,background .28s ease,border-color .28s ease}
+  .btn:active,.iconbtn:active,.favbtn:active,.swatch:active,.choice:active,.optionbtn:active{transform:scale(.97)}
+}
+@media(max-width:760px){
+  #products .actionsrow .btn{transition:transform .55s var(--rw-ease),box-shadow .4s ease}
+  #productModal.show .box{transform:translate3d(0,8px,0) scale(.99)}
+  #productModal.show .box{transform:translate3d(0,0,0) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  #productModal,#productModal .box,#products .card,#products .card .photo,#products .actionsrow .btn,#products .card .favbtn,#products .card .badge{transition:none!important;animation:none!important}
+}
+</style>
+
 </head>
 <body>
-<nav><div class="logo">RE-WEAR</div><div class="links"><a href="#shop" data-i18n="shop">SHOP</a><a href="#about" data-i18n="about">ABOUT</a><a href="#contact" data-i18n="contact">CONTACT</a></div><div class="actions"><button class="iconbtn" onclick="toggleSearch()" title="Search">⌕</button><button class="iconbtn" onclick="toggleLang()" id="langBtn">EN</button><button class="switch" id="theme"><span class="knob" id="knob">☾</span></button><button class="iconbtn" onclick="trackLastOrder()" title="متابعة الطلب">🔔</button><button class="iconbtn cartbtn" onclick="openCart()">🛒<span class="count" id="cartCount">0</span></button><button class="iconbtn" onclick="openAdmin()">ADM</button></div></nav><div class="searchbar" id="searchBar"><input id="searchInput" placeholder="ابحث عن منتج..." oninput="setSearch(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();submitSearch()}"></div>
+<nav><div class="logo">RE-WEAR</div><div class="links"><a href="#shop" data-i18n="shop">SHOP</a><a href="#about" data-i18n="about">ABOUT</a><a href="#contact" data-i18n="contact">CONTACT</a></div><div class="actions"><button class="iconbtn" onclick="toggleSearch()" title="Search">⌕</button><button class="iconbtn" onclick="toggleLang()" id="langBtn">EN</button><button class="switch" id="theme" type="button" aria-label="تغيير المظهر" title="تغيير المظهر"><span class="knob" id="knob" aria-hidden="true"></span></button><button class="iconbtn" onclick="trackLastOrder()" title="متابعة الطلب">🔔</button><button class="iconbtn cartbtn" onclick="openCart()">🛒<span class="count" id="cartCount">0</span></button><button class="iconbtn" onclick="openAdmin()">ADM</button></div></nav><div class="searchbar" id="searchBar"><input id="searchInput" placeholder="ابحث عن منتج..." oninput="setSearch(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();submitSearch()}"></div>
 
 <header class="hero"><div><div class="eyebrow">STREETWEAR / ALGERIA</div><h1>WEAR<br>YOUR<br>ERA.</h1><p>ملابس عصرية للشباب. ستايل نظيف، قطع مريحة، وقطع تخليك تلبس بطريقتك.</p><a class="btn" href="#shop">SHOP THE DROP ↓</a></div></header>
 
@@ -173,9 +1467,79 @@ img{content-visibility:auto;}
 <div class="modal" id="favoritesModal"><div class="box"><button class="iconbtn close" onclick="closeModal('favoritesModal')">✕</button><h2>❤️ المفضلة</h2><div class="grid" id="favoritesItems"></div></div></div>
 <div class="modal" id="trackModal"><div class="box"><button class="iconbtn close" onclick="closeModal('trackModal')">✕</button><h2>🔔 متابعة طلبي</h2><div id="trackOrderContent" class="order-detail"></div></div></div>
 <div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom()"><img id="zoomImage" alt=""></div>
+<div class="rw-drawer-overlay" id="rwOrderDrawerOverlay" onclick="closeOrderDrawer()"><aside class="rw-drawer" id="rwOrderDrawer" onclick="event.stopPropagation()"><button class="iconbtn close" onclick="closeOrderDrawer()">✕</button><div id="rwOrderDrawerBody"></div></aside></div>
+<div class="modal" id="rwDeleteOrderModal"><div class="box rw-delete-box"><div class="rw-delete-icon">×</div><h2>حذف الطلبية؟</h2><p id="rwDeleteText" class="muted">هذا الإجراء لا يمكن التراجع عنه.</p><div class="status-modal-actions"><button class="btn danger-confirm" id="rwDeleteConfirm">حذف نهائي</button><button class="iconbtn" onclick="closeDeleteOrderModal()">إلغاء</button></div></div></div>
 <div class="modal" id="orderConfirmModal"><div class="box order-confirm-box"><button class="iconbtn close" onclick="closeModal('orderConfirmModal')">✕</button><div class="status-modal-head"><div id="statusModalIcon" class="status-modal-icon">✓</div><div><h2 id="statusModalTitle">تأكيد الطلب</h2><p id="statusModalSubtitle" class="muted">راجع تفاصيل العملية قبل التنفيذ.</p></div></div><div id="orderConfirmBody"></div><div class="status-modal-actions"><button class="btn" id="confirmStatusBtn">تأكيد</button><button class="iconbtn" onclick="closeModal('orderConfirmModal')">إلغاء</button></div></div></div>
 <div class="modal" id="adminModal"><div class="box"><button class="iconbtn close" onclick="closeModal('adminModal')">✕</button><h2>RE-WEAR ADMIN</h2><div id="login"><form class="form" id="loginForm"><input id="adminEmail" type="email" placeholder="البريد الإلكتروني" autocomplete="username" required><input id="adminPass" type="password" placeholder="كلمة السر" autocomplete="current-password" required><button class="btn" id="loginBtn">دخول</button><div id="loginMsg" class="notice" style="display:none"></div></form></div>
-<div class="admin" id="adminPanel"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px"><b>ADMIN SESSION</b><button type="button" class="iconbtn" onclick="adminLogout()">تسجيل الخروج</button></div><div class="dash"><div class="stat">المنتجات<b id="statProducts">0</b></div><div class="stat">الطلبات<b id="statOrders">0</b></div><div class="stat">الطلبات المؤكدة<b id="statConfirmed">0</b></div><div class="stat">الإيرادات<b id="statRevenue">0 DA</b></div><div class="stat">متوسط قيمة الطلب<b id="statAvgOrder">0 DA</b></div><div class="stat">في السلة<b id="statCart">0</b></div><div class="stat">قيمة السلة<b id="statSales">0 DA</b></div><div class="stat">❤️ المفضلة<b id="statFavorites">0</b></div><div class="stat">🏆 الأكثر مبيعًا<b id="statBestSeller">—</b></div></div>
+<div class="admin" id="adminPanel"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px"><b>ADMIN SESSION</b><button type="button" class="iconbtn" onclick="adminLogout()">تسجيل الخروج</button></div><section class="rw-dashboard" id="rwDashboard">
+  <div class="rw-dash-head">
+    <div>
+      <span class="rw-eyebrow">RE-WEAR / CONTROL CENTER</span>
+      <h3>لوحة التحكم</h3>
+      <p>نظرة سريعة على أداء المتجر والطلبات والمبيعات.</p>
+    </div>
+    <div class="rw-dash-actions"><select id="rwRange" class="rw-range" onchange="renderProfessionalDashboard(window.__RW_ALL_ORDERS||[])"><option value="7">7 أيام</option><option value="30">30 يوم</option><option value="90">3 أشهر</option></select><button type="button" class="rw-mini-btn" onclick="refreshAdminData()">↻ تحديث</button><div class="rw-live"><i></i><span>متصل</span><small id="rwDashUpdated">آخر تحديث الآن</small></div></div>
+  </div>
+
+  <div class="rw-kpis">
+    <article class="rw-kpi accent">
+      <div class="rw-kpi-icon">◉</div><div><span>الإيرادات المؤكدة</span><b id="statRevenue">0 DA</b><small id="rwRevenueSub">من 0 طلب مؤكد</small></div>
+    </article>
+    <article class="rw-kpi">
+      <div class="rw-kpi-icon">↗</div><div><span>إجمالي الطلبات</span><b id="statOrders">0</b><small id="rwOrdersSub">0 قيد الانتظار</small></div>
+    </article>
+    <article class="rw-kpi">
+      <div class="rw-kpi-icon">✓</div><div><span>الطلبات المؤكدة</span><b id="statConfirmed">0</b><small id="rwConfirmRate">نسبة التأكيد 0%</small></div>
+    </article>
+    <article class="rw-kpi">
+      <div class="rw-kpi-icon">◌</div><div><span>متوسط الطلب</span><b id="statAvgOrder">0 DA</b><small>لكل طلب مؤكد</small></div>
+    </article>
+  </div>
+
+  <div class="rw-insight-row">
+    <div class="rw-insight"><span>نمو الإيرادات</span><b id="rwRevenueGrowth">—</b><small>مقارنة بالفترة السابقة</small></div>
+    <div class="rw-insight"><span>نمو الطلبات</span><b id="rwOrdersGrowth">—</b><small>مقارنة بالفترة السابقة</small></div>
+    <div class="rw-insight"><span>متوسط القطع / طلب</span><b id="rwItemsPerOrder">0</b><small>من الطلبات المؤكدة</small></div>
+    <div class="rw-alert" id="rwPendingAlert"><span>⚡</span><div><b>طلبات تحتاج انتباه</b><small id="rwPendingAlertText">لا توجد طلبات معلقة.</small></div><button type="button" onclick="focusPendingOrders()">عرض</button></div>
+  </div>
+
+  <div class="rw-dashboard-grid">
+    <section class="rw-panel rw-chart-panel">
+      <div class="rw-panel-head"><div><h4>الإيرادات</h4><span>آخر 7 أيام • الطلبات المؤكدة</span></div><strong id="rwWeekRevenue">0 DA</strong></div>
+      <div class="rw-chart" id="rwRevenueChart" aria-label="مخطط الإيرادات"></div>
+    </section>
+
+    <section class="rw-panel">
+      <div class="rw-panel-head"><div><h4>حالة الطلبات</h4><span>توزيع الطلبات الحالية</span></div></div>
+      <div class="rw-status-list" id="rwStatusChart"></div>
+    </section>
+
+    <section class="rw-panel">
+      <div class="rw-panel-head"><div><h4>الأكثر مبيعًا</h4><span>حسب الكمية المؤكدة</span></div><strong class="rw-trophy">★</strong></div>
+      <div id="rwBestProducts" class="rw-best-products"></div>
+    </section>
+
+    <section class="rw-panel">
+      <div class="rw-panel-head"><div><h4>أفضل التصنيفات</h4><span>حسب قيمة المبيعات المؤكدة</span></div><strong class="rw-trophy">◈</strong></div>
+      <div id="rwTopCategories" class="rw-best-products"></div>
+    </section>
+
+    <section class="rw-panel">
+      <div class="rw-panel-head"><div><h4>آخر الطلبات</h4><span>أحدث العمليات</span></div><button type="button" class="rw-mini-btn" onclick="document.getElementById('ordersList')?.scrollIntoView({behavior:'smooth',block:'start'})">عرض الكل</button></div>
+      <div id="rwRecentOrders" class="rw-recent-orders"></div>
+    </section>
+  </div>
+
+  <div class="rw-quick-row">
+    <button type="button" class="rw-quick" onclick="document.getElementById('formTitle')?.scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('pname')?.focus()"><span>＋</span><div><b>إضافة منتج</b><small>أضف قطعة جديدة للمخزون</small></div></button>
+    <button type="button" class="rw-quick" onclick="document.getElementById('ordersList')?.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('orderSearch')?.focus()"><span>⌕</span><div><b>بحث في الطلبات</b><small>ابحث بالاسم أو الهاتف أو الرقم</small></div></button>
+    <button type="button" class="rw-quick" onclick="document.getElementById('shipWilaya')?.scrollIntoView({behavior:'smooth',block:'center'})"><span>⌁</span><div><b>التوصيل</b><small>تعديل أسعار الولايات</small></div></button>
+  </div>
+
+  <div class="rw-legacy-stats" aria-hidden="true">
+    <span id="statProducts">0</span><span id="statCart">0</span><span id="statSales">0 DA</span><span id="statFavorites">0</span><span id="statBestSeller">—</span>
+  </div>
+</section>
 <h3 id="formTitle">إضافة منتج</h3><form class="form" id="productForm"><input id="pname" placeholder="اسم المنتج" required><div class="row"><input id="pprice" type="number" min="0" placeholder="السعر" required><input id="pold" type="number" min="0" placeholder="السعر القديم (اختياري)"></div><input id="pdesc" placeholder="الوصف"><input id="pcat" placeholder="التصنيف: Hoodies / T-Shirts / Pants"><label>المقاسات</label><div class="choice-row" id="adminSizes"></div><input id="psizes" type="hidden">
 <label>الألوان</label><div class="choice-row" id="adminColors"></div><input id="pcolors" type="hidden">
 <div class="discount-input"><div><label>نسبة التخفيض %</label><input id="pdiscountPct" type="number" min="0" max="100" step="1" placeholder="مثال: 20"></div><div><label>التخفيض</label><select id="discountDuration"><option value="none">دائم</option><option value="custom">مدة مخصصة</option></select></div></div>
@@ -185,9 +1549,10 @@ img{content-visibility:auto;}
 <div class="admin-section"><h3>🏷️ إدارة التصنيفات</h3>
 <div class="admin-tools"><input id="newCategory" placeholder="اسم التصنيف"><button type="button" class="btn" onclick="addCategory()">إضافة</button></div>
 <div id="categoryManager" class="category-manager"></div></div>
-<h3>المنتجات</h3><div class="admin-list" id="adminList"></div>
-<div class="admin-section"><h3>📦 الطلبات</h3>
-<div class="admin-tools"><input id="orderSearch" placeholder="بحث بالاسم، الهاتف أو رقم الطلب" oninput="loadOrders()"><select id="orderFilter" onchange="loadOrders()"><option value="all">كل الطلبات</option><option value="pending">قيد الانتظار</option><option value="confirmed">مؤكد</option><option value="rejected">مرفوض</option></select></div>
+<div class="admin-section rw-products-manager"><div class="rw-section-head"><div><h3>🛍️ المنتجات</h3><small>إدارة سريعة للمنتجات والأسعار والتصنيفات</small></div></div><div class="rw-product-tools"><input id="productAdminSearch" placeholder="بحث عن منتج..." oninput="renderAdmin()"><select id="productAdminFilter" onchange="renderAdmin()"><option value="all">كل التصنيفات</option></select><select id="productAdminSort" onchange="renderAdmin()"><option value="new">الأحدث</option><option value="name">الاسم</option><option value="priceHigh">السعر الأعلى</option><option value="priceLow">السعر الأقل</option></select></div><div class="admin-list" id="adminList"></div></div>
+<div class="admin-section rw-orders-manager"><div class="rw-section-head"><div><h3>📦 الطلبات</h3><small>إدارة الطلبات ومتابعة حالتها بسرعة</small></div><span id="rwOrdersCountBadge" class="rw-count-badge">0</span></div>
+<div class="rw-order-tabs"><button type="button" class="active" data-order-tab="all" onclick="setOrderTab('all')">الكل</button><button type="button" data-order-tab="pending" onclick="setOrderTab('pending')">جديدة</button><button type="button" data-order-tab="confirmed" onclick="setOrderTab('confirmed')">مؤكدة</button><button type="button" data-order-tab="rejected" onclick="setOrderTab('rejected')">مرفوضة</button></div>
+<div class="admin-tools"><input id="orderSearch" placeholder="بحث بالاسم، الهاتف أو رقم الطلب" oninput="loadOrders()"><select id="orderFilter" onchange="syncOrderTab();loadOrders()"><option value="all">كل الحالات</option><option value="pending">قيد الانتظار</option><option value="confirmed">مؤكد</option><option value="rejected">مرفوض</option></select><input id="orderDateFrom" type="date" onchange="loadOrders()"><input id="orderDateTo" type="date" onchange="loadOrders()"><select id="orderSort" onchange="loadOrders()"><option value="new">الأحدث</option><option value="old">الأقدم</option><option value="high">القيمة الأعلى</option><option value="low">القيمة الأقل</option></select></div>
 <div class="admin-list" id="ordersList"><p class="muted">جاري تحميل الطلبات...</p></div></div></div></div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -197,6 +1562,20 @@ const SUPABASE_KEY="sb_publishable_kRbCpxpyD4nsMEMSjhl4uw_w5CrIkJz";
 const PRODUCT_BUCKET="product-images";
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+/* The current public.orders DELETE policy is explicitly granted to the
+   anon role. The admin client becomes authenticated after login, so its
+   DELETE request is evaluated as authenticated and can be denied even when
+   the anon DELETE policy is true. Keep the normal client for all existing
+   functionality and use a separate, session-free anon client only for the
+   existing orders DELETE operation. No schema change is required. */
+const sbAnonDelete = createClient(SUPABASE_URL, SUPABASE_KEY, {
+  auth: {
+    persistSession: false,
+    autoRefreshToken: false,
+    detectSessionInUrl: false,
+    storageKey: "rw_anon_delete_session"
+  }
+});
 const byId = id => document.getElementById(id);
 const productModalEl = byId("productModal"), productDetailEl = byId("productDetail");
 const cartModalEl = byId("cartModal"), cartItemsEl = byId("cartItems"), cartTotalEl = byId("cartTotal"), cartCountEl = byId("cartCount");
@@ -316,21 +1695,80 @@ function viewProduct(id){
   const ep=effectivePrice(p);
   const gallery=(Array.isArray(p.images)&&p.images.length?p.images:(p.image_url?[p.image_url]:[]));
   const suggestions=products.filter(x=>Number(x.id)!==Number(p.id)&&x.category===p.category).slice(0,3);
+  const pct=(p.old_price&&Number(ep)<Number(p.old_price))?Math.round((1-Number(ep)/Number(p.old_price))*100):0;
+  const fav=isFavorite(p.id);
+  const imgs=gallery.length?gallery:[];
+  const main=imgs[0]||"";
+  const imgHtml=main
+    ? `<img id="productMainImage" class="product-main-image zoomable" src="${esc(main)}" onclick="openZoom(this.src)" alt="${esc(p.name)}">`
+    : `<div id="productMainImage" class="placeholder product-main-image">RE-WEAR</div>`;
+  const thumbs=imgs.length>1
+    ? `<div class="product-thumbs">${imgs.map((u,i)=>`<button type="button" class="product-thumb ${i===0?"selected":""}" onclick="selectProductImage(${i})"><img src="${esc(u)}" alt=""></button>`).join("")}</div>`
+    : "";
+  const suggestionsHtml=suggestions.length
+    ? suggestions.map(x=>{
+        const u=Array.isArray(x.images)&&x.images.length?x.images[0]:(x.image_url||"");
+        return `<button type="button" class="suggest-card" onclick="viewProduct(${Number(x.id)})">${u?`<img src="${esc(u)}" alt="${esc(x.name)}">`:`<div class="suggest-placeholder">RW</div>`}<span>${esc(x.name)}</span></button>`;
+      }).join("")
+    : `<span class="muted">ما كاش اقتراحات أخرى حاليًا.</span>`;
+
   productDetailEl.innerHTML=`
-    ${gallery.length?`<img class="detailimg zoomable" src="${esc(gallery[0])}" onclick="openZoom(this.src)" alt="${esc(p.name)}">`:`<div class="placeholder detailimg">RW</div>`}
-    <h2>${esc(p.name)}</h2>
-    <p class="muted">${esc(p.description||"")}</p>
-    <div class="price">${p.old_price&&ep<p.old_price?`<span class="old">${Number(p.old_price).toLocaleString()} DA</span>`:""}${Number(ep).toLocaleString()} DA</div>
-    <h4>المقاس</h4>
-    <div class="swatches" id="productSizes">${(p.sizes||[]).map((v,i)=>`<button type="button" class="swatch ${i===0?"selected":""}" data-value="${esc(v)}" onclick="selectSwatch(this)">${esc(v)}</button>`).join("")||"<span class='muted'>غير محدد</span>"}</div>
-    <h4>اللون</h4>
-    <div class="swatches" id="productColors">${(p.colors||[]).map((v,i)=>`<button type="button" class="swatch ${i===0?"selected":""}" data-value="${esc(v)}" onclick="selectSwatch(this)">${esc(v)}</button>`).join("")||"<span class='muted'>غير محدد</span>"}</div>
-    <div class="cart-actions"><label>الكمية</label><div class="qty"><button type="button" onclick="changeDetailQty(-1)">−</button><b id="detailQty">1</b><button type="button" onclick="changeDetailQty(1)">+</button></div></div><br>
-    <button class="btn" type="button" onclick="addSelectedToCart(${Number(p.id)})">أضف للسلة</button>
-    <div class="admin-section"><h4>منتجات قد تعجبك</h4><div class="grid">${suggestions.map(x=>`<button type="button" class="iconbtn" onclick="viewProduct(${Number(x.id)})">${esc(x.name)}</button>`).join("")||"<span class='muted'>لا توجد اقتراحات بعد.</span>"}</div></div>`;
+    <div class="product-pro">
+      <div class="product-media">
+        ${imgHtml}
+        ${thumbs}
+      </div>
+      <div class="product-info">
+        <div class="product-head">
+          <div>
+            ${p.badge?`<span class="badge">${esc(p.badge)}</span>`:""}
+            ${pct?`<span class="badge" style="margin-right:6px">-${pct}%</span>`:""}
+            <h2 class="product-title">${esc(p.name)}</h2>
+          </div>
+          <button type="button" class="product-fav" aria-label="المفضلة" onclick="toggleFavorite(${Number(p.id)});viewProduct(${Number(p.id)})">${fav?"♥":"♡"}</button>
+        </div>
+        ${p.description?`<p class="muted product-description">${esc(p.description)}</p>`:""}
+        <div class="product-price">
+          ${p.old_price&&Number(ep)<Number(p.old_price)?`<span class="product-old">${Number(p.old_price).toLocaleString()} DA</span>`:""}
+          <span>${Number(ep).toLocaleString()} DA</span>
+        </div>
+
+        <div class="product-meta">
+          <div class="product-option">
+            <h4>المقاس</h4>
+            <div class="swatches" id="productSizes">${(p.sizes||[]).map((v,i)=>`<button type="button" class="swatch ${i===0?"selected":""}" data-value="${esc(v)}" onclick="selectSwatch(this)">${esc(v)}</button>`).join("")||"<span class='muted'>غير محدد</span>"}</div>
+          </div>
+          <div class="product-option">
+            <h4>اللون</h4>
+            <div class="swatches" id="productColors">${(p.colors||[]).map((v,i)=>`<button type="button" class="swatch ${i===0?"selected":""}" data-value="${esc(v)}" onclick="selectSwatch(this)">${esc(v)}</button>`).join("")||"<span class='muted'>غير محدد</span>"}</div>
+          </div>
+        </div>
+
+        <div class="product-actions">
+          <div class="qty"><button type="button" onclick="changeDetailQty(-1)">−</button><b id="detailQty">1</b><button type="button" onclick="changeDetailQty(1)">+</button></div>
+          <button class="btn product-add" type="button" onclick="addSelectedToCart(${Number(p.id)})">أضف للسلة</button>
+        </div>
+
+        ${suggestions.length ? `
+        <div class="product-suggest">
+          <h4>منتجات قد تعجبك</h4>
+          <div class="suggest-grid">${suggestionsHtml}</div>
+        </div>` : ""}
+      </div>
+    </div>`;
+
+  window._rwProductGallery=imgs;
   detailQty=1;
   productModalEl.classList.add("show");
   document.body.classList.add("modal-open");
+}
+function selectProductImage(index){
+  const imgs=window._rwProductGallery||[];
+  const u=imgs[index];
+  const main=document.getElementById("productMainImage");
+  if(!u||!main)return;
+  if(main.tagName==="IMG"){main.src=u}else{main.outerHTML=`<img id="productMainImage" class="product-main-image zoomable" src="${esc(u)}" onclick="openZoom(this.src)" alt="">`;}
+  document.querySelectorAll("#productModal .product-thumb").forEach((b,i)=>b.classList.toggle("selected",i===index));
 }
 function openZoom(src){zoomImage.src=src;zoomOverlay.classList.add("show")}
 function closeZoom(){zoomOverlay.classList.remove("show");zoomImage.src=""}
@@ -397,7 +1835,7 @@ async function trackLastOrder(){
 }
 function subscribeOrderStatus(){const saved=load(LASTORDERKEY,null);if(!saved?.id)return;sb.channel("rw-v10-order-status").on("postgres_changes",{event:"UPDATE",schema:"public",table:"orders",filter:`id=eq.${saved.id}`},p=>{const s=load(LASTORDERKEY,{});s.status=p.new.status;localStorage.setItem(LASTORDERKEY,JSON.stringify(s));}).subscribe()}
 function closeModal(id){const el=document.getElementById(id);if(el)el.classList.remove("show");if(!document.querySelector(".modal.show"))document.body.classList.remove("modal-open")}
-function openAdmin(){adminModal.classList.add("show")}
+function openAdmin(){adminModal.classList.add("show");requestAnimationFrame(()=>{if(typeof renderAdmin==="function")renderAdmin();});}
 function showAdminPanel(){
   login.style.display="none";
   adminPanel.classList.add("show");
@@ -642,21 +2080,135 @@ function saveShippingRate(){
 renderShippingSettings();
 
 function renderAdmin(){
-  adminList.innerHTML=products.map(p=>`<div class="admin-item"><div class="admin-top">${p.image_url?`<img class="thumb" src="${esc(p.image_url)}">`:`<div class="thumb placeholder" style="font-size:18px">RW</div>`}<b>${esc(p.name)}</b><span>${p.discount||p.badge==="SALE"?"🏷️ ":""}${Number(p.price).toLocaleString()} DA</span><div class="admin-actions"><button class="iconbtn" onclick="editProduct(${p.id})">تعديل</button><button class="iconbtn danger" onclick="deleteProduct(${p.id})">حذف</button></div></div></div>`).join("");
+  const q=(byId("productAdminSearch")?.value||"").trim().toLowerCase();
+  const filter=byId("productAdminFilter")?.value||"all";
+  const sort=byId("productAdminSort")?.value||"new";
+  const cats=[...new Set(products.map(p=>p.category||"Other"))].sort((a,b)=>a.localeCompare(b));
+  const pf=byId("productAdminFilter");
+  if(pf){const cur=pf.value;pf.innerHTML='<option value="all">كل التصنيفات</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");if(cats.includes(cur))pf.value=cur;}
+  let list=products.filter(p=>(filter==="all"||(p.category||"Other")==filter)&&(!q||`${p.name||""} ${p.category||""}`.toLowerCase().includes(q)));
+  list.sort((a,b)=>sort==="name"?String(a.name).localeCompare(String(b.name)):sort==="priceHigh"?Number(b.price)-Number(a.price):sort==="priceLow"?Number(a.price)-Number(b.price):Number(b.id||0)-Number(a.id||0));
+  adminList.innerHTML=list.map(p=>`<div class="admin-item rw-product-row"><div class="admin-top"><div class="rw-product-main">${p.image_url?`<img class="thumb" src="${esc(p.image_url)}">`:`<div class="thumb placeholder" style="font-size:18px">RW</div>`}<div><b>${esc(p.name)}</b><small class="muted">${esc(p.category||"Other")} · ${Number(p.price).toLocaleString()} DA</small><span class="rw-stock-pill ${Number(p.stock||0)<=0?'low':''}">${p.stock!==undefined?`المخزون: ${Number(p.stock||0)}`:"المخزون غير محدد"}</span></div></div><div class="admin-actions"><button class="iconbtn" onclick="editProduct(${p.id})">تعديل</button><button class="iconbtn" onclick="quickEditPrice(${p.id})">السعر</button><button class="iconbtn" onclick="duplicateProduct(${p.id})">نسخ</button><button class="iconbtn danger" onclick="deleteProduct(${p.id})">حذف</button></div></div></div>`).join("")||'<p class="muted">لا توجد منتجات مطابقة.</p>';
   if(typeof loadOrders==="function" && adminPanel.classList.contains("show")){loadOrders();renderShippingSettings();}
 }
+
+
+function renderProfessionalDashboard(allOrders){
+  const orders=Array.isArray(allOrders)?allOrders:[];
+  const rangeDays=Math.max(7,Number(byId("rwRange")?.value)||7);
+  const confirmed=orders.filter(o=>o.status==="confirmed");
+  const pending=orders.filter(o=>o.status==="pending");
+  const rejected=orders.filter(o=>o.status==="rejected");
+  const revenue=confirmed.reduce((sum,o)=>sum+Number(o.total||0),0);
+  const avg=confirmed.length?Math.round(revenue/confirmed.length):0;
+  const rate=orders.length?Math.round(confirmed.length/orders.length*100):0;
+  const revSub=byId("rwRevenueSub"), ordSub=byId("rwOrdersSub"), rateEl=byId("rwConfirmRate");
+  if(revSub)revSub.textContent=`من ${confirmed.length} طلب مؤكد`;
+  if(ordSub)ordSub.textContent=`${pending.length} قيد الانتظار`;
+  if(rateEl)rateEl.textContent=`نسبة التأكيد ${rate}%`;
+  const upd=byId("rwDashUpdated"); if(upd)upd.textContent="آخر تحديث "+new Date().toLocaleTimeString("ar-DZ",{hour:"2-digit",minute:"2-digit"});
+  const days=[];
+  const buckets=Math.min(rangeDays,14);
+  for(let i=buckets-1;i>=0;i--){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-i*Math.max(1,Math.ceil(rangeDays/buckets)));days.push(d);}
+  const daily=days.map(d=>orders.filter(o=>o.status==="confirmed"&&o.created_at&&new Date(o.created_at)>=d&&new Date(o.created_at)<new Date(d.getTime()+86400000)).reduce((a,o)=>a+Number(o.total||0),0));
+  const max=Math.max(1,...daily);
+  const chart=byId("rwRevenueChart");
+  if(chart)chart.innerHTML=days.map((d,i)=>`<div class="rw-bar-col"><span class="rw-bar-value">${daily[i]?Math.round(daily[i]/1000)+"k":""}</span><div class="rw-bar" style="height:${Math.max(4,Math.round(daily[i]/max*115))}px"></div><small>${d.toLocaleDateString("ar-DZ",{weekday:"short"}).replace("،","")}</small></div>`).join("");
+  const week= daily.reduce((a,b)=>a+b,0), weekEl=byId("rwWeekRevenue"); if(weekEl)weekEl.textContent=week.toLocaleString()+" DA";
+  const statusBox=byId("rwStatusChart"), total=orders.length||1;
+  if(statusBox)statusBox.innerHTML=[
+    ["confirmed","مؤكد",confirmed.length,"confirmed"],["pending","قيد الانتظار",pending.length,"pending"],["rejected","مرفوض",rejected.length,"rejected"]
+  ].map(x=>`<div class="rw-status-row ${x[3]}"><span>${x[1]}</span><div class="rw-status-track"><div class="rw-status-fill" style="width:${Math.round(x[2]/total*100)}%"></div></div><b>${x[2]}</b></div>`).join("");
+  const sales={};
+  confirmed.forEach(o=>(Array.isArray(o.items)?o.items:[]).forEach(i=>{const id=String(i.id??i.name??"unknown");sales[id]=(sales[id]||{name:i.name||"منتج",qty:0,revenue:0});sales[id].qty+=Number(i.quantity)||1;sales[id].revenue+=Number(i.price||0)*(Number(i.quantity)||1)}));
+  const top=Object.values(sales).sort((a,b)=>b.qty-a.qty).slice(0,4);
+  const best=byId("rwBestProducts");
+  if(best)best.innerHTML=top.length?top.map((x,i)=>`<div class="rw-best-item"><span class="rw-rank">0${i+1}</span><div><b>${esc(x.name)}</b><small>${x.qty} قطعة مؤكدة</small></div><strong>${x.revenue.toLocaleString()} DA</strong></div>`).join(""):'<span class="muted" style="font-size:11px">لا توجد مبيعات مؤكدة بعد.</span>';
+  if(byId("statBestSeller"))byId("statBestSeller").textContent=top[0]?`${top[0].name} (${top[0].qty})`:"—";
+  const recent=orders.slice(0,5), recentBox=byId("rwRecentOrders");
+  if(recentBox)recentBox.innerHTML=recent.length?recent.map(o=>`<div class="rw-recent-item"><span class="rw-order-dot ${esc(o.status||"pending")}"></span><div><b>RW-${esc(o.id)}</b><small>${esc(o.customer_name||"بدون اسم")} · ${o.created_at?new Date(o.created_at).toLocaleDateString("ar-DZ"):"—"}</small></div><strong>${Number(o.total||0).toLocaleString()} DA</strong></div>`).join(""):'<span class="muted" style="font-size:11px">لا توجد طلبات.</span>';
+  const periodStart=new Date();periodStart.setHours(0,0,0,0);periodStart.setDate(periodStart.getDate()-(rangeDays-1));const prevStart=new Date(periodStart);prevStart.setDate(prevStart.getDate()-rangeDays);const prevEnd=new Date(periodStart);
+  const inPeriod=orders.filter(o=>o.created_at&&new Date(o.created_at)>=periodStart),prev=orders.filter(o=>o.created_at&&new Date(o.created_at)>=prevStart&&new Date(o.created_at)<prevEnd);
+  const periodRev=inPeriod.filter(o=>o.status==="confirmed").reduce((a,o)=>a+Number(o.total||0),0),prevRev=prev.filter(o=>o.status==="confirmed").reduce((a,o)=>a+Number(o.total||0),0);
+  const pct=(a,b)=>b===0?(a?100:0):Math.round((a-b)/b*100);const rg=byId("rwRevenueGrowth"),og=byId("rwOrdersGrowth");if(rg)rg.textContent=(pct(periodRev,prevRev)>=0?"↑ ":"↓ ")+Math.abs(pct(periodRev,prevRev))+"%";if(og)og.textContent=(pct(inPeriod.length,prev.length)>=0?"↑ ":"↓ ")+Math.abs(pct(inPeriod.length,prev.length))+"%";
+  const confirmedItems=confirmed.reduce((n,o)=>n+(Array.isArray(o.items)?o.items.reduce((x,i)=>x+(Number(i.quantity)||1),0):0),0);if(byId("rwItemsPerOrder"))byId("rwItemsPerOrder").textContent=confirmed.length?(confirmedItems/confirmed.length).toFixed(1):"0";
+  const pend=orders.filter(o=>o.status==="pending").length;const alertText=byId("rwPendingAlertText");if(alertText)alertText.textContent=pend?`${pend} طلب${pend>1?"ات":""} تنتظر المعالجة.`:"لا توجد طلبات معلقة.";byId("rwPendingAlert")?.classList.toggle("has-alert",pend>0);
+  const cats={};confirmed.forEach(o=>(o.items||[]).forEach(i=>{const prod=products.find(p=>String(p.id)===String(i.id));const c=prod?.category||"Other";cats[c]=(cats[c]||0)+Number(i.price||0)*(Number(i.quantity)||1)}));const catTop=Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,5);const catBox=byId("rwTopCategories");if(catBox)catBox.innerHTML=catTop.length?catTop.map((x,i)=>`<div class="rw-best-item"><span class="rw-rank">0${i+1}</span><div><b>${esc(x[0])}</b><small>مبيعات مؤكدة</small></div><strong>${x[1].toLocaleString()} DA</strong></div>`).join(""):'<span class="muted" style="font-size:11px">لا توجد بيانات كافية.</span>';
+}
+
 async function loadOrders(){
-  const {data,error}=await sb.from("orders").select("*").order("created_at",{ascending:false});
-  if(error){ordersList.innerHTML='<p class="muted">تعذر تحميل الطلبات. تأكد من صلاحيات جدول orders.</p>';return;}
-  const q=(orderSearch?.value||"").trim().toLowerCase(), f=orderFilter?.value||"all";
-  const filtered=(data||[]).filter(o=>(f==="all"||o.status===f)&&(!q||`rw-${o.id} ${o.customer_name||""} ${o.phone||""} ${o.wilaya||""}`.toLowerCase().includes(q)));
- const allOrders=data||[],confirmedOrders=allOrders.filter(o=>o.status==="confirmed"),revenue=confirmedOrders.reduce((a,o)=>a+Number(o.total||0),0);
- if(byId("statOrders"))byId("statOrders").textContent=allOrders.length;
- if(byId("statConfirmed"))byId("statConfirmed").textContent=confirmedOrders.length;
- if(byId("statRevenue"))byId("statRevenue").textContent=revenue.toLocaleString()+" DA";
- if(byId("statAvgOrder"))byId("statAvgOrder").textContent=(confirmedOrders.length?Math.round(revenue/confirmedOrders.length):0).toLocaleString()+" DA";
-  const sales={}; (data||[]).filter(o=>o.status==="confirmed").forEach(o=>(o.items||[]).forEach(i=>sales[i.id]=(sales[i.id]||0)+(Number(i.quantity)||1))); const top=Object.entries(sales).sort((a,b)=>b[1]-a[1])[0]; const topProduct=top?products.find(p=>String(p.id)===String(top[0])):null; if(statBestSeller)statBestSeller.textContent=topProduct?`${topProduct.name} (${top[1]})`:"—";
-  ordersList.innerHTML=filtered.map(o=>`<div class="admin-item"><div class="admin-top"><b>RW-${esc(o.id)}</b><span>${Number(o.total||0).toLocaleString()} DA</span><span class="order-status">${esc(o.status||"pending")}</span></div><div class="muted">${esc(o.customer_name||"")} · ${esc(o.phone||"")} · ${esc(o.wilaya||"")}</div><div style="margin-top:8px">${Array.isArray(o.items)?o.items.map(i=>`${esc(i.name)} × ${i.quantity||1}${i.size?` (${esc(i.size)})`:""}${i.color?` - ${esc(i.color)}`:""}`).join(" · "):""}</div><div class="admin-actions" style="margin-top:10px"><button class="btn" onclick="requestOrderStatus(${o.id},'confirmed')">✅ تأكيد</button><button class="iconbtn danger" onclick="requestOrderStatus(${o.id},'rejected')">❌ رفض</button></div></div>`).join("")||'<p class="muted">لا توجد طلبات.</p>';
+  sb.from("orders").select("*").order("created_at",{ascending:false}).order("id",{ascending:false}).then(({data,error})=>{
+    if(error){ordersList.innerHTML='<p class="muted">تعذر تحميل الطلبات. تأكد من صلاحيات جدول orders.</p>';return;}
+    const allOrders=(data||[]).slice().sort((a,b)=>{const ta=a.created_at?Date.parse(a.created_at):NaN,tb=b.created_at?Date.parse(b.created_at):NaN;if(Number.isFinite(ta)&&Number.isFinite(tb)&&ta!==tb)return tb-ta;if(Number.isFinite(ta)!==Number.isFinite(tb))return Number.isFinite(tb)?-1:1;return Number(b.id||0)-Number(a.id||0);});
+    window.__RW_ALL_ORDERS=allOrders;
+    const q=(orderSearch?.value||"").trim().toLowerCase(), f=orderFilter?.value||"all", from=byId("orderDateFrom")?.value?new Date(byId("orderDateFrom").value+"T00:00:00"):null, to=byId("orderDateTo")?.value?new Date(byId("orderDateTo").value+"T23:59:59"):null, sort=byId("orderSort")?.value||"new";
+    let filtered=allOrders.filter(o=>{const dt=o.created_at?new Date(o.created_at):null;return (f==="all"||o.status===f)&&(!q||`rw-${o.id} ${o.customer_name||""} ${o.phone||""} ${o.wilaya||""}`.toLowerCase().includes(q))&&(!from||!dt||dt>=from)&&(!to||!dt||dt<=to);});
+    filtered.sort((a,b)=>sort==="old"?Number(a.id)-Number(b.id):sort==="high"?Number(b.total||0)-Number(a.total||0):sort==="low"?Number(a.total||0)-Number(b.total||0):Number(b.id||0)-Number(a.id||0));
+    const confirmedOrders=allOrders.filter(o=>o.status==="confirmed"),revenue=confirmedOrders.reduce((a,o)=>a+Number(o.total||0),0);
+    if(byId("statOrders"))byId("statOrders").textContent=allOrders.length;if(byId("statConfirmed"))byId("statConfirmed").textContent=confirmedOrders.length;if(byId("statRevenue"))byId("statRevenue").textContent=revenue.toLocaleString()+" DA";if(byId("statAvgOrder"))byId("statAvgOrder").textContent=(confirmedOrders.length?Math.round(revenue/confirmedOrders.length):0).toLocaleString()+" DA";if(byId("rwOrdersCountBadge"))byId("rwOrdersCountBadge").textContent=allOrders.length;
+    const sales={};confirmedOrders.forEach(o=>(o.items||[]).forEach(i=>{const k=String(i.id??i.name??"unknown");sales[k]=(sales[k]||0)+(Number(i.quantity)||1);}));const top=Object.entries(sales).sort((a,b)=>b[1]-a[1])[0],topProduct=top?products.find(p=>String(p.id)===String(top[0])):null;if(statBestSeller)statBestSeller.textContent=topProduct?`${topProduct.name} (${top[1]})`:"—";
+    ordersList.innerHTML=filtered.map(o=>`<div class="admin-item rw-order-row"><div class="admin-top"><button type="button" class="order-delete-btn" data-delete-order="${o.id}" onclick="requestDeleteOrder(${o.id})" title="حذف الطلبية" aria-label="حذف الطلبية">×</button><div><b>RW-${esc(o.id)}</b><small class="muted">${esc(o.customer_name||"بدون اسم")} · ${esc(o.phone||"—")} · ${esc(o.wilaya||"—")}</small></div><strong>${Number(o.total||0).toLocaleString()} DA</strong><span class="order-status">${esc(o.status||"pending")}</span></div><div class="rw-order-meta"><span>${o.created_at?new Date(o.created_at).toLocaleString("ar-DZ"):"—"}</span><span>${Array.isArray(o.items)?o.items.reduce((n,i)=>n+(Number(i.quantity)||1),0):0} قطعة</span></div><div class="admin-actions" style="margin-top:10px"><button class="btn" onclick="openOrderDrawer(${o.id})">تفاصيل الطلب</button>${o.status!=="confirmed"?`<button class="btn" onclick="requestOrderStatus(${o.id},'confirmed')">✅ تأكيد</button>`:""}${o.status!=="rejected"?`<button class="iconbtn danger" onclick="requestOrderStatus(${o.id},'rejected')">❌ رفض</button>`:""}</div></div>`).join("")||'<p class="muted">لا توجد طلبات مطابقة.</p>';
+    renderProfessionalDashboard(allOrders);
+  });
+}
+function setOrderTab(status){if(orderFilter)orderFilter.value=status;document.querySelectorAll("[data-order-tab]").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===status));loadOrders();}
+function syncOrderTab(){document.querySelectorAll("[data-order-tab]").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===(orderFilter?.value||"all")));}
+function focusPendingOrders(){setOrderTab("pending");byId("ordersList")?.scrollIntoView({behavior:"smooth",block:"start"});}
+function refreshAdminData(){loadProducts();loadOrders();}
+function quickEditPrice(id){const p=products.find(x=>x.id===id);if(!p)return;const v=prompt(`السعر الجديد لـ ${p.name}`,p.price);if(v===null)return;const price=Number(v);if(!Number.isFinite(price)||price<0)return alert("السعر غير صالح.");sb.from("products").update({price}).eq("id",id).select().single().then(({data,error})=>{if(error)alert("تعذر تعديل السعر: "+error.message);else{products=products.map(x=>x.id===id?data:x);render();renderAdmin();}})}
+async function duplicateProduct(id){const p=products.find(x=>x.id===id);if(!p)return;try{const {data,error}=await sb.from("products").insert({name:(p.name||"منتج")+" — نسخة",price:p.price,old_price:p.old_price||0,description:p.description||"",category:p.category||"Other",sizes:p.sizes||[],colors:p.colors||[],badge:p.badge||"",image_url:p.image_url||"",stock:Number(p.stock||0)}).select().single();if(error)throw error;products.push(data);render();renderAdmin();alert("تم نسخ المنتج.");}catch(e){alert("تعذر نسخ المنتج: "+e.message)}}
+function openOrderDrawer(id){const o=(window.__RW_ALL_ORDERS||[]).find(x=>Number(x.id)===Number(id));if(!o)return;const items=Array.isArray(o.items)?o.items:[];const steps=["pending","confirmed","shipping","completed"],labels={pending:"طلب جديد",confirmed:"مؤكد",shipping:"قيد التوصيل",completed:"مكتمل"};const current=steps.indexOf(o.status);byId("rwOrderDrawerBody").innerHTML=`<div class="rw-drawer-head"><span class="rw-eyebrow">ORDER DETAILS</span><h2>RW-${esc(o.id)}</h2><span class="order-status">${esc(o.status||"pending")}</span></div><div class="rw-customer-grid"><div><small>الزبون</small><b>${esc(o.customer_name||"—")}</b></div><div><small>الهاتف</small><b>${esc(o.phone||"—")}</b></div><div><small>الولاية</small><b>${esc(o.wilaya||"—")}</b></div><div><small>العنوان</small><b>${esc(o.address||"—")}</b></div></div><div class="rw-timeline">${steps.map((st,i)=>`<div class="rw-step ${i<=current?"done":""}"><i></i><span>${labels[st]}</span></div>`).join("")}</div><div class="rw-drawer-items">${items.map(i=>`<div><span><b>${esc(i.name||"منتج")}</b><small>${Number(i.quantity||1)} × ${Number(i.price||0).toLocaleString()} DA${i.size?` · ${esc(i.size)}`:""}${i.color?` · ${esc(i.color)}`:""}</small></span><strong>${(Number(i.quantity||1)*Number(i.price||0)).toLocaleString()} DA</strong></div>`).join("")}</div><div class="rw-drawer-total"><span>الإجمالي</span><b>${Number(o.total||0).toLocaleString()} DA</b></div><div class="rw-drawer-actions">${o.status!=="confirmed"?`<button class="btn" onclick="closeOrderDrawer();requestOrderStatus(${o.id},'confirmed')">تأكيد الطلب</button>`:""}${o.status!=="rejected"?`<button class="iconbtn danger" onclick="closeOrderDrawer();requestOrderStatus(${o.id},'rejected')">رفض</button>`:""}<button class="iconbtn" onclick="closeOrderDrawer();requestDeleteOrder(${o.id})">حذف</button></div>`;byId("rwOrderDrawerOverlay").classList.add("show");document.body.classList.add("modal-open")}
+function closeOrderDrawer(){byId("rwOrderDrawerOverlay")?.classList.remove("show");if(!document.querySelector(".modal.show"))document.body.classList.remove("modal-open")}
+let pendingDeleteOrderId=null;
+function requestDeleteOrder(id){if(deletingOrderIds.has(Number(id)))return;const o=(window.__RW_ALL_ORDERS||[]).find(x=>Number(x.id)===Number(id));pendingDeleteOrderId=Number(id);byId("rwDeleteText").textContent=o?`سيتم حذف الطلب RW-${o.id} للزبون ${o.customer_name||"بدون اسم"} نهائيًا.`:"هذا الإجراء لا يمكن التراجع عنه.";byId("rwDeleteOrderModal").classList.add("show");document.body.classList.add("modal-open")}
+function closeDeleteOrderModal(){pendingDeleteOrderId=null;byId("rwDeleteOrderModal")?.classList.remove("show");if(!document.querySelector(".modal.show"))document.body.classList.remove("modal-open")}
+byId("rwDeleteConfirm")?.addEventListener("click",async()=>{if(pendingDeleteOrderId==null)return;const id=pendingDeleteOrderId;closeDeleteOrderModal();await deleteOrder(id)});
+
+const deletingOrderIds=new Set();
+
+async function deleteOrder(id){
+  const orderId=Number(id);
+  if(!Number.isInteger(orderId)){
+    alert("تعذر حذف الطلبية: رقم الطلبية غير صالح.");
+    return;
+  }
+  if(deletingOrderIds.has(orderId)) return;
+  if(!confirm("هل أنت متأكد من حذف هذه الطلبية نهائيًا؟")) return;
+
+  const btn=document.querySelector(`[data-delete-order="${orderId}"]`);
+  deletingOrderIds.add(orderId);
+  if(btn){btn.disabled=true;btn.textContent="…";btn.setAttribute("aria-busy","true");}
+
+  try{
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/orders?id=eq.${encodeURIComponent(orderId)}`,{
+      method:"DELETE",
+      headers:{"apikey":SUPABASE_KEY,"Authorization":`Bearer ${SUPABASE_KEY}`,"Prefer":"count=exact,return=minimal"}
+    });
+    const contentRange=response.headers.get("content-range")||"";
+    let body="";
+    if(!response.ok){
+      try{body=await response.text();}catch(_){}
+      let detail="HTTP "+response.status;
+      try{const parsed=JSON.parse(body);detail=parsed.message||parsed.error||parsed.hint||detail;}catch(_){if(body)detail=body;}
+      throw new Error(detail);
+    }
+    const match=contentRange.match(/\/([0-9]+)$/);
+    if(match && Number(match[1])===0){
+      throw new Error("لم تُحذف أي صف من public.orders. طلب DELETE وصل إلى Supabase لكن لم يطابق الطلبية. تحقق من DELETE Policy للـanon.");
+    }
+    if(!match){
+      const {data:remainingOrder,error:verifyError}=await sbAnonDelete.from("orders").select("id").eq("id",orderId).maybeSingle();
+      if(verifyError) console.warn("ORDER DELETE VERIFY WARNING:",verifyError);
+      else if(remainingOrder) throw new Error("تم إرسال DELETE لكن الطلبية ما زالت موجودة في public.orders. تحقق من صلاحيات Supabase.");
+    }
+    const item=btn?.closest(".admin-item");
+    if(item) item.remove();
+    await loadOrders();
+  }catch(err){
+    console.error("ORDER DELETE ERROR:",err);
+    alert("تعذر حذف الطلبية فعليًا.\n\n"+(err?.message||String(err)||"خطأ غير معروف"));
+    if(btn){btn.disabled=false;btn.textContent="×";btn.removeAttribute("aria-busy");}
+  }finally{deletingOrderIds.delete(orderId);}
 }
 let pendingStatusChange=null;
 function orderDetailsHTML(o){
@@ -710,9 +2262,15 @@ async function confirmOrderStatus(){
 }
 function updateOrderStatus(id,status){requestOrderStatus(id,status)}
 
-const savedTheme=localStorage.getItem(THEME)||"dark"; document.body.classList.toggle("light",savedTheme==="light"); knob.textContent=savedTheme==="light"?"☀":"☾";
-function applyTheme(){const saved=localStorage.getItem(THEME);const light=saved==="light";document.body.classList.toggle("light",light);if(knob)knob.textContent=light?"☀":"☾";}
-theme.addEventListener("click",()=>{const light=!document.body.classList.contains("light");document.body.classList.toggle("light",light);localStorage.setItem(THEME,light?"light":"dark");if(knob)knob.textContent=light?"☀":"☾";});
+function setThemeIcon(light){
+  if(!knob)return;
+  knob.innerHTML=light
+    ? '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+    : '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z" fill="currentColor"/></svg>';
+}
+function applyTheme(){const light=localStorage.getItem(THEME)==="light";document.body.classList.toggle("light",light);setThemeIcon(light);}
+theme.addEventListener("click",()=>{const light=!document.body.classList.contains("light");document.body.classList.toggle("light",light);localStorage.setItem(THEME,light?"light":"dark");setThemeIcon(light);});
+
 const productsEl=document.getElementById("products");
 async function loadProducts(){
   const {data,error}=await sb.from("products").select("*").order("created_at",{ascending:false});
@@ -734,4 +2292,94 @@ if(wilayaEl)wilayaEl.addEventListener("change",()=>localStorage.setItem("rw_v10_
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.querySelectorAll(".modal.show").forEach(m=>m.classList.remove("show"));if(zoomOverlay)closeZoom();}});
 </script><script id="re-wear-v10-performance-js">(()=>{'use strict';window.REWEAR_PERF=window.REWEAR_PERF||{};window.REWEAR_PERF.raf=window.requestAnimationFrame?window.requestAnimationFrame.bind(window):(fn)=>setTimeout(fn,16);})();</script>
 
-</body></html>
+
+<style id="re-wear-professional-dashboard">
+#adminPanel{--rw-glass:color-mix(in srgb,var(--card) 88%,transparent);--rw-soft:color-mix(in srgb,var(--text) 5%,transparent)}
+.rw-dashboard{margin:4px 0 30px;padding:20px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--bg) 55%,var(--card)));box-shadow:0 18px 50px rgba(0,0,0,.08)}
+.rw-dash-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}
+.rw-eyebrow{font-size:10px;letter-spacing:2px;font-weight:900;color:var(--a);opacity:.9}
+.rw-dash-head h3{font-size:26px;margin:6px 0 4px;letter-spacing:-.5px}
+.rw-dash-head p{margin:0;color:var(--muted);font-size:13px}
+.rw-live{display:grid;grid-template-columns:auto auto;gap:2px 7px;align-items:center;padding:9px 12px;border:1px solid var(--border);border-radius:12px;background:var(--rw-glass);white-space:nowrap}
+.rw-live i{width:8px;height:8px;border-radius:50%;background:#36c982;box-shadow:0 0 0 4px color-mix(in srgb,#36c982 15%,transparent);grid-row:1/3}
+.rw-live span{font-size:12px;font-weight:800}.rw-live small{font-size:9px;color:var(--muted)}
+.rw-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-bottom:11px}
+.rw-kpi{min-height:92px;padding:15px;display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:16px;background:var(--rw-glass);transition:transform .22s ease,border-color .22s ease}
+.rw-kpi:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--a) 35%,var(--border))}
+.rw-kpi.accent{background:linear-gradient(135deg,color-mix(in srgb,var(--a) 13%,var(--card)),var(--card))}
+.rw-kpi-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;background:var(--rw-soft);font-size:18px;color:var(--a);flex:none}
+.rw-kpi span{display:block;font-size:11px;color:var(--muted);font-weight:700}.rw-kpi b{display:block;font-size:20px;line-height:1.2;margin:5px 0}.rw-kpi small{display:block;color:var(--muted);font-size:9px}
+.rw-dashboard-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(250px,.85fr);gap:11px}
+.rw-panel{min-width:0;padding:16px;border:1px solid var(--border);border-radius:16px;background:var(--rw-glass)}
+.rw-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:14px}.rw-panel-head h4{margin:0;font-size:14px}.rw-panel-head span{display:block;margin-top:4px;color:var(--muted);font-size:10px}.rw-panel-head>strong{font-size:15px}
+.rw-chart-panel{min-height:235px}.rw-chart{height:158px;display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;padding:4px 0 0}
+.rw-bar-col{height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:6px}.rw-bar-value{font-size:8px;color:var(--muted);height:10px}.rw-bar{width:min(30px,65%);min-height:4px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,var(--a),color-mix(in srgb,var(--a) 35%,var(--card)));transform-origin:bottom;animation:rwBarIn .55s cubic-bezier(.2,.8,.2,1) both}.rw-bar-col small{font-size:9px;color:var(--muted)}
+@keyframes rwBarIn{from{transform:scaleY(.05);opacity:.2}to{transform:scaleY(1);opacity:1}}
+.rw-status-list{display:grid;gap:13px;padding-top:4px}.rw-status-row{display:grid;grid-template-columns:78px 1fr 32px;align-items:center;gap:8px;font-size:10px}.rw-status-track{height:7px;border-radius:20px;background:var(--rw-soft);overflow:hidden}.rw-status-fill{height:100%;border-radius:inherit;background:var(--a);transform-origin:left;animation:rwFill .7s ease both}.rw-status-row.pending .rw-status-fill{background:#e3a53f}.rw-status-row.rejected .rw-status-fill{background:#e45b68}.rw-status-row.confirmed .rw-status-fill{background:#35b879}@keyframes rwFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.rw-best-products,.rw-recent-orders{display:grid;gap:7px}.rw-best-item,.rw-recent-item{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:9px;padding:8px;border-radius:10px;background:var(--rw-soft)}.rw-rank{font-size:10px;font-weight:900;color:var(--a);text-align:center}.rw-best-item b,.rw-recent-item b{font-size:11px}.rw-best-item small,.rw-recent-item small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.rw-best-item strong,.rw-recent-item strong{font-size:10px;white-space:nowrap}.rw-order-dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:#e3a53f}.rw-order-dot.confirmed{background:#35b879}.rw-order-dot.rejected{background:#e45b68}
+.rw-mini-btn{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:6px 9px;font-size:9px;cursor:pointer}
+.rw-quick-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:11px}.rw-quick{display:flex;align-items:center;text-align:right;gap:10px;padding:12px;border:1px solid var(--border);border-radius:13px;background:var(--rw-glass);color:var(--text);cursor:pointer;transition:transform .2s ease,border-color .2s ease}.rw-quick:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--a) 35%,var(--border))}.rw-quick>span{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:var(--rw-soft);color:var(--a);font-size:17px}.rw-quick b{display:block;font-size:11px}.rw-quick small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+.rw-legacy-stats{display:none}
+@media(max-width:900px){.rw-kpis{grid-template-columns:repeat(2,1fr)}.rw-dashboard-grid{grid-template-columns:1fr}.rw-chart-panel{min-height:220px}}
+@media(max-width:560px){.rw-dashboard{padding:13px;border-radius:17px}.rw-dash-head{align-items:center}.rw-dash-head h3{font-size:21px}.rw-live{padding:7px 9px}.rw-kpis{gap:7px}.rw-kpi{min-height:82px;padding:11px;gap:8px}.rw-kpi b{font-size:16px}.rw-kpi-icon{width:32px;height:32px}.rw-quick-row{grid-template-columns:1fr}.rw-chart{gap:4px}}
+@media(prefers-reduced-motion:reduce){.rw-bar,.rw-status-fill{animation:none}.rw-kpi,.rw-quick{transition:none}}
+</style>
+<style id="rw-pro-dashboard-v15">
+.rw-dash-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.rw-range{border:1px solid var(--border);background:var(--bg);color:var(--text);padding:7px 10px;border-radius:9px;font-size:10px}.rw-insight-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:10px 0}.rw-insight,.rw-alert{border:1px solid var(--border);background:var(--rw-glass,var(--card));border-radius:12px;padding:11px}.rw-insight span,.rw-insight small{display:block;color:var(--muted);font-size:9px}.rw-insight b{display:block;font-size:17px;margin:4px 0}.rw-alert{display:flex;align-items:center;gap:9px}.rw-alert>span{font-size:20px}.rw-alert b{display:block;font-size:10px}.rw-alert small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.rw-alert button{margin-inline-start:auto;border:0;background:var(--a);color:#fff;border-radius:7px;padding:6px 8px;font-size:9px}.rw-alert.has-alert{border-color:color-mix(in srgb,var(--a) 55%,var(--border));box-shadow:0 0 0 1px color-mix(in srgb,var(--a) 12%,transparent)}.rw-section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.rw-section-head h3{margin:0}.rw-section-head small{color:var(--muted)}.rw-product-tools{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin:12px 0}.rw-product-tools input,.rw-product-tools select{min-width:0;padding:11px;border:1px solid var(--border);border-radius:9px;background:var(--bg);color:var(--text)}.rw-product-main{display:flex;align-items:center;gap:10px;min-width:0}.rw-product-main>div:last-child{display:grid;gap:3px}.rw-product-main small{display:block}.rw-stock-pill{display:inline-block;width:max-content;font-size:8px;padding:3px 6px;border-radius:20px;background:color-mix(in srgb,#35b879 13%,transparent);color:#35b879}.rw-stock-pill.low{background:color-mix(in srgb,#e45b68 13%,transparent);color:#e45b68}.rw-order-row .admin-top{align-items:center}.rw-order-row .admin-top>div{flex:1;min-width:0}.rw-order-row .admin-top small{display:block;margin-top:3px}.rw-order-meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:9px;margin-top:7px}.rw-count-badge{background:var(--a);color:#fff;border-radius:20px;padding:4px 9px;font-size:10px}.rw-order-tabs{display:flex;gap:6px;overflow:auto;padding:3px 0 8px}.rw-order-tabs button{border:1px solid var(--border);background:var(--bg);color:var(--muted);border-radius:20px;padding:7px 12px;white-space:nowrap;cursor:pointer}.rw-order-tabs button.active{background:var(--a);color:#fff;border-color:var(--a)}.rw-drawer-overlay{position:fixed;inset:0;background:#0008;z-index:120;display:none;justify-content:flex-end}.rw-drawer-overlay.show{display:flex}.rw-drawer{width:min(470px,100vw);height:100dvh;background:var(--card);border-inline-start:1px solid var(--border);padding:24px;overflow:auto;animation:rwDrawerIn .3s cubic-bezier(.2,.8,.2,1)}@keyframes rwDrawerIn{from{transform:translateX(100%);opacity:.7}to{transform:none;opacity:1}}.rw-drawer-head{padding:15px 0;border-bottom:1px solid var(--border)}.rw-drawer-head h2{margin:5px 0}.rw-customer-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:15px 0}.rw-customer-grid>div{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:9px}.rw-customer-grid small{display:block;color:var(--muted);font-size:9px}.rw-customer-grid b{display:block;font-size:11px;margin-top:3px;overflow-wrap:anywhere}.rw-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:17px 0}.rw-step{text-align:center;color:var(--muted);font-size:8px;position:relative}.rw-step i{display:block;width:12px;height:12px;border-radius:50%;border:2px solid var(--border);margin:0 auto 5px;background:var(--card)}.rw-step.done{color:var(--text)}.rw-step.done i{border-color:var(--a);background:var(--a)}.rw-drawer-items{display:grid;gap:7px}.rw-drawer-items>div{display:flex;justify-content:space-between;gap:10px;padding:10px;border-bottom:1px solid var(--border)}.rw-drawer-items small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.rw-drawer-total{display:flex;justify-content:space-between;padding:17px 0;font-size:15px}.rw-drawer-actions{display:flex;gap:8px;flex-wrap:wrap}.rw-delete-box{text-align:center;max-width:400px}.rw-delete-icon{width:55px;height:55px;border-radius:16px;display:grid;place-items:center;margin:0 auto 10px;background:color-mix(in srgb,#e45b68 12%,transparent);color:#e45b68;font-size:32px;font-weight:900}.danger-confirm{background:#e45b68!important}.rw-mini-btn{cursor:pointer}.rw-trophy{color:var(--a)}
+@media(max-width:800px){.rw-insight-row{grid-template-columns:1fr 1fr}.rw-product-tools{grid-template-columns:1fr}.rw-order-row .admin-top{flex-wrap:wrap}.rw-order-row .admin-top>strong{margin-inline-start:auto}}
+@media(max-width:500px){.rw-insight-row{grid-template-columns:1fr}.rw-customer-grid{grid-template-columns:1fr}.rw-drawer{padding:18px}.rw-dash-actions{width:100%}.rw-live{margin-inline-start:auto}}
+</style>
+<style id="re-wear-admin-scroll-final">
+/* Final mobile Admin scrolling fix: keep ONE scroll container so the Orders section is always reachable. */
+#adminModal.show{
+  align-items:flex-start!important;
+  justify-content:center!important;
+  padding:12px!important;
+  overflow:hidden!important;
+}
+#adminModal.show > .box{
+  width:min(1180px,calc(100vw - 24px))!important;
+  max-width:calc(100vw - 24px)!important;
+  height:calc(100dvh - 24px)!important;
+  max-height:calc(100dvh - 24px)!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  overscroll-behavior:contain!important;
+  touch-action:pan-y!important;
+  padding-bottom:70px!important;
+}
+#adminModal.show #adminPanel{
+  height:auto!important;
+  max-height:none!important;
+  min-height:0!important;
+  overflow:visible!important;
+  touch-action:auto!important;
+}
+#adminModal.show #ordersList{
+  min-height:80px!important;
+  padding-bottom:30px!important;
+}
+@media(max-width:700px){
+  #adminModal.show{padding:8px!important}
+  #adminModal.show > .box{
+    width:calc(100vw - 16px)!important;
+    max-width:calc(100vw - 16px)!important;
+    height:calc(100dvh - 16px)!important;
+    max-height:calc(100dvh - 16px)!important;
+    padding:16px 12px 80px!important;
+  }
+}
+@media(max-width:430px){
+  #adminModal.show > .box{
+    width:calc(100vw - 12px)!important;
+    max-width:calc(100vw - 12px)!important;
+    height:calc(100dvh - 12px)!important;
+    max-height:calc(100dvh - 12px)!important;
+    padding:13px 10px 90px!important;
+  }
+}
+</style>
+
